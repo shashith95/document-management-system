@@ -1,0 +1,35 @@
+spring:
+  data:
+    mongodb:
+      uri: mongodb://localhost:27017/csi-dms
+  datasource:
+    username: dm_management
+    password: 1234
+    driver-class-name: org.postgresql.Driver
+    url: jdbc:postgresql://localhost:5432/postgres
+  jpa:
+    hibernate:
+      #      this is included to support uppercase values for table names and column names
+      naming:
+        physical-strategy: org.hibernate.boot.model.naming.PhysicalNamingStrategyStandardImpl
+    properties:
+      hibernate:
+        dialect: org.hibernate.dialect.PostgreSQLDialect
+        globally_quoted_identifiers: true
+  liquibase:
+    url: ${spring.datasource.url}
+    user: ${spring.datasource.username}
+    password: ${spring.datasource.password}
+    driver-class-name: ${spring.datasource.driver-class-name}
+    change-log: classpath:db/changelog/postgres/changelog-master.xml
+
+minio:
+  endPoint: http://127.0.0.1:9000
+  accessKey: minioadmin
+  secretKey: minioadmin
+  developmentEnvironment: "net-oke"
+
+file:
+  ws_downLoad_Path: "C:/downloads/ws/"
+  unzip_file_path: "C:/downloads/unzip/"
+  temp_file_upload_path: "C:/upload/"

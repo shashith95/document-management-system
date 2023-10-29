@@ -1,0 +1,561 @@
+<?xml version="1.1" encoding="UTF-8" standalone="no"?>
+<databaseChangeLog xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+                   xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
+                   xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-4.0.xsd"
+                   objectQuotingStrategy="QUOTE_ALL_OBJECTS">
+
+    <changeSet author="mujahid.thoufeek" id="schema.default.2.1">
+        <preConditions onFail="MARK_RAN">
+            <not>
+                <tableExists tableName="DEFAULT_ATTRIBUTE"/>
+            </not>
+        </preConditions>
+        <createTable tableName="DEFAULT_ATTRIBUTE">
+            <column autoIncrement="true" name="ID" type="INT">
+                <constraints nullable="false" primaryKey="true"/>
+            </column>
+            <column name="COMPONENT_ID" type="INT">
+                <constraints nullable="false"/>
+            </column>
+            <column name="PROPERTY_ID" type="INT">
+                <constraints nullable="false"/>
+            </column>
+            <column name="DEFAULT_ATTRIBUTE_ID" type="INT">
+                <constraints nullable="false"/>
+            </column>
+            <column name="HOSPITAL_ID" type="VARCHAR(45)">
+                <constraints nullable="false"/>
+            </column>
+            <column name="TENANT_ID" type="VARCHAR(45)">
+                <constraints nullable="false"/>
+            </column>
+            <column name="CREATED_USER" type="VARCHAR(45)">
+                <constraints nullable="false"/>
+            </column>
+            <column name="CREATED_DATE_TIME" type="TIMESTAMP">
+                <constraints nullable="false"/>
+            </column>
+            <column name="UPDATED_DATE_TIME" type="TIMESTAMP">
+                <constraints nullable="false"/>
+            </column>
+        </createTable>
+    </changeSet>
+    <changeSet author="mujahid.thoufeek" id="schema.default.2.2">
+        <preConditions onFail="MARK_RAN">
+            <not>
+                <tableExists tableName="DIRECTORY_DETAILS"/>
+            </not>
+        </preConditions>
+        <createTable tableName="DIRECTORY_DETAILS">
+            <column autoIncrement="true" name="ID" type="BIGINT">
+                <constraints nullable="false" primaryKey="true"/>
+            </column>
+            <column name="PATH" type="VARCHAR(255)">
+                <constraints nullable="false"/>
+            </column>
+            <column name="BUCKET" type="VARCHAR(255)">
+                <constraints nullable="false"/>
+            </column>
+            <column name="TENANT" type="VARCHAR(255)">
+                <constraints nullable="false"/>
+            </column>
+            <column name="STATUS" type="BOOLEAN">
+                <constraints nullable="false"/>
+            </column>
+            <column name="CREATED_DATE_TIME" type="TIMESTAMP">
+                <constraints nullable="false"/>
+            </column>
+        </createTable>
+    </changeSet>
+    <changeSet author="mujahid.thoufeek" id="schema.default.2.3">
+        <preConditions onFail="MARK_RAN">
+            <not>
+                <tableExists tableName="DOCUMENT_DETAILS"/>
+            </not>
+        </preConditions>
+        <createTable tableName="DOCUMENT_DETAILS">
+            <column name="ID" type="VARCHAR(255)">
+                <constraints nullable="false" primaryKey="true"/>
+            </column>
+            <column name="DIRECTORY_DETAILS_ID" type="BIGINT">
+                <constraints nullable="false"/>
+            </column>
+            <column name="DOCUMENT_NAME" type="VARCHAR(255)">
+                <constraints nullable="false"/>
+            </column>
+            <column name="STATUS" type="BOOLEAN">
+                <constraints nullable="false"/>
+            </column>
+            <column name="CREATED_DATE_TIME" type="TIMESTAMP">
+                <constraints nullable="false"/>
+            </column>
+        </createTable>
+    </changeSet>
+    <changeSet author="mujahid.thoufeek" id="schema.default.2.4">
+        <preConditions onFail="MARK_RAN">
+            <not>
+                <tableExists tableName="FILE_DETAILS"/>
+            </not>
+        </preConditions>
+        <createTable tableName="FILE_DETAILS">
+            <column name="ID" type="VARCHAR(255)">
+                <constraints nullable="false" primaryKey="true"/>
+            </column>
+            <column name="DOCUMENT_ID" type="VARCHAR(255)">
+                <constraints nullable="false"/>
+            </column>
+            <column name="FILE_NAME" type="VARCHAR(255)">
+                <constraints nullable="false"/>
+            </column>
+            <column name="SEQ" type="BIGINT">
+                <constraints nullable="false"/>
+            </column>
+            <column name="STATUS" type="BOOLEAN">
+                <constraints nullable="false"/>
+            </column>
+            <column name="EXTENSION" type="VARCHAR(255)">
+                <constraints nullable="false"/>
+            </column>
+        </createTable>
+    </changeSet>
+    <changeSet author="mujahid.thoufeek" id="schema.default.2.5">
+        <preConditions onFail="MARK_RAN">
+            <not>
+                <tableExists tableName="FILE_PROPERTY"/>
+            </not>
+        </preConditions>
+        <createTable tableName="FILE_PROPERTY">
+            <column autoIncrement="true" name="ID" type="INT">
+                <constraints nullable="false" primaryKey="true"/>
+            </column>
+            <column name="NAME" type="VARCHAR(255)">
+                <constraints nullable="false"/>
+            </column>
+            <column name="IS_DELETABLE" type="BOOLEAN">
+                <constraints nullable="false"/>
+            </column>
+            <column name="IS_MANDATORY" type="BOOLEAN">
+                <constraints nullable="false"/>
+            </column>
+            <column name="IS_FREE_TEXT" type="BOOLEAN">
+                <constraints nullable="false"/>
+            </column>
+            <column name="IS_ADDABLE" type="BOOLEAN">
+                <constraints nullable="false"/>
+            </column>
+            <column name="PROPERTY_TYPE" type="INT"/>
+            <column name="TENANT_ID" type="VARCHAR(255)">
+                <constraints nullable="false"/>
+            </column>
+            <column name="HOSPITAL_ID" type="VARCHAR(255)">
+                <constraints nullable="false"/>
+            </column>
+            <column name="HIERARCHY_AVAILABLE" type="BOOLEAN">
+                <constraints nullable="false"/>
+            </column>
+            <column name="CREATED_DATE_TIME" type="TIMESTAMP">
+                <constraints nullable="false"/>
+            </column>
+            <column name="UPDATED_DATE_TIME" type="TIMESTAMP">
+                <constraints nullable="false"/>
+            </column>
+            <column name="CREATED_USER" type="VARCHAR(255)">
+                <constraints nullable="false"/>
+            </column>
+            <column defaultValueBoolean="true" name="STATUS" type="BOOLEAN">
+                <constraints nullable="false"/>
+            </column>
+        </createTable>
+    </changeSet>
+    <changeSet author="mujahid.thoufeek" id="schema.default.2.6">
+        <preConditions onFail="MARK_RAN">
+            <not>
+                <tableExists tableName="FOLDER_HIERARCHY"/>
+            </not>
+        </preConditions>
+        <createTable tableName="FOLDER_HIERARCHY">
+            <column autoIncrement="true" name="ID" type="INT">
+                <constraints nullable="false" primaryKey="true"/>
+            </column>
+            <column name="IS_CUSTOM" type="BOOLEAN">
+                <constraints nullable="false"/>
+            </column>
+            <column name="USER" type="VARCHAR(255)">
+                <constraints nullable="false"/>
+            </column>
+            <column name="HOSPITAL_ID" type="VARCHAR(255)">
+                <constraints nullable="false"/>
+            </column>
+            <column name="TENANT_ID" type="VARCHAR(255)">
+                <constraints nullable="false"/>
+            </column>
+            <column name="CREATED_DATE_TIME" type="TIMESTAMP">
+                <constraints nullable="false"/>
+            </column>
+            <column name="UPDATED_DATE_TIME" type="TIMESTAMP">
+                <constraints nullable="false"/>
+            </column>
+        </createTable>
+    </changeSet>
+    <changeSet author="mujahid.thoufeek" id="schema.default.2.7">
+        <preConditions onFail="MARK_RAN">
+            <not>
+                <tableExists tableName="HIERARCHY_RESOURCES"/>
+            </not>
+        </preConditions>
+        <createTable tableName="HIERARCHY_RESOURCES">
+            <column autoIncrement="true" name="ID" type="INT">
+                <constraints nullable="false" primaryKey="true"/>
+            </column>
+            <column name="FOLDER_HIERARCHY_ID" type="INT">
+                <constraints nullable="false"/>
+            </column>
+            <column name="PROPERTY_ID" type="INT">
+                <constraints nullable="false"/>
+            </column>
+            <column name="INDEX" type="INT">
+                <constraints nullable="false"/>
+            </column>
+            <column name="CREATED_DATE_TIME" type="TIMESTAMP">
+                <constraints nullable="false"/>
+            </column>
+        </createTable>
+    </changeSet>
+    <changeSet author="mujahid.thoufeek" id="schema.default.2.8">
+        <preConditions onFail="MARK_RAN">
+            <not>
+                <tableExists tableName="PROPERTY_ATTRIBUTES"/>
+            </not>
+        </preConditions>
+        <createTable tableName="PROPERTY_ATTRIBUTES">
+            <column autoIncrement="true" name="ID" type="INT">
+                <constraints nullable="false" primaryKey="true"/>
+            </column>
+            <column name="PROPERTY_ID" type="INT">
+                <constraints nullable="false"/>
+            </column>
+            <column name="NAME" type="VARCHAR(255)">
+                <constraints nullable="false"/>
+            </column>
+            <column name="IS_DELETABLE" type="BOOLEAN">
+                <constraints nullable="false"/>
+            </column>
+            <column name="HOSPITAL_ID" type="VARCHAR(255)">
+                <constraints nullable="false"/>
+            </column>
+            <column name="TENANT_ID" type="VARCHAR(255)">
+                <constraints nullable="false"/>
+            </column>
+            <column name="CREATED_USER" type="VARCHAR(255)">
+                <constraints nullable="false"/>
+            </column>
+            <column name="CREATED_DATE_TIME" type="TIMESTAMP">
+                <constraints nullable="false"/>
+            </column>
+            <column name="UPDATED_DATE_TIME" type="TIMESTAMP">
+                <constraints nullable="false"/>
+            </column>
+        </createTable>
+    </changeSet>
+    <changeSet author="mujahid.thoufeek" id="schema.default.2.9">
+        <preConditions onFail="MARK_RAN">
+            <not>
+                <tableExists tableName="SCAN_COMPONENT_RESOURCES"/>
+            </not>
+        </preConditions>
+        <createTable tableName="SCAN_COMPONENT_RESOURCES">
+            <column autoIncrement="true" name="ID" type="INT">
+                <constraints nullable="false" primaryKey="true"/>
+            </column>
+            <column name="COMPONENT_SETTING_ID" type="INT">
+                <constraints nullable="false"/>
+            </column>
+            <column name="PROPERTY_ID" type="INT">
+                <constraints nullable="false"/>
+            </column>
+            <column name="PROPERTY_NAME" type="VARCHAR(255)">
+                <constraints nullable="false"/>
+            </column>
+            <column name="ATTRIBUTE_ID" type="INT"/>
+            <column name="ATTRIBUTE_NAME" type="VARCHAR(255)"/>
+            <column name="IS_MANDATORY" type="BOOLEAN">
+                <constraints nullable="false"/>
+            </column>
+            <column name="IS_FREE_TEXT" type="BOOLEAN">
+                <constraints nullable="false"/>
+            </column>
+            <column name="IS_ADDABLE" type="BOOLEAN">
+                <constraints nullable="false"/>
+            </column>
+            <column name="FREE_TEXT_TYPE" type="INT">
+                <constraints nullable="false"/>
+            </column>
+            <column name="STATUS" type="BOOLEAN">
+                <constraints nullable="false"/>
+            </column>
+        </createTable>
+    </changeSet>
+    <changeSet author="mujahid.thoufeek" id="schema.default.2.10">
+        <preConditions onFail="MARK_RAN">
+            <not>
+                <tableExists tableName="SCAN_COMPONENT_SETTINGS"/>
+            </not>
+        </preConditions>
+        <createTable tableName="SCAN_COMPONENT_SETTINGS">
+            <column autoIncrement="true" name="ID" type="INT">
+                <constraints nullable="false" primaryKey="true"/>
+            </column>
+            <column name="COMPONENT" type="INT">
+                <constraints nullable="false"/>
+            </column>
+            <column name="DEFAULT_SCANNER_PROFILE_ID" type="INT">
+                <constraints nullable="false"/>
+            </column>
+            <column name="HOSPITAL_ID" type="VARCHAR(45)">
+                <constraints nullable="false"/>
+            </column>
+            <column name="TENANT_ID" type="VARCHAR(45)">
+                <constraints nullable="false"/>
+            </column>
+            <column name="CREATED_USER" type="VARCHAR(45)">
+                <constraints nullable="false"/>
+            </column>
+            <column name="CREATED_DATE_TIME" type="TIMESTAMP">
+                <constraints nullable="false"/>
+            </column>
+            <column name="UPDATED_DATE_TIME" type="TIMESTAMP">
+                <constraints nullable="false"/>
+            </column>
+            <column name="STATUS" type="BOOLEAN">
+                <constraints nullable="false"/>
+            </column>
+        </createTable>
+    </changeSet>
+    <changeSet author="mujahid.thoufeek" id="schema.default.2.11">
+        <preConditions onFail="MARK_RAN">
+            <not>
+                <tableExists tableName="SCANNER_SETTINGS"/>
+            </not>
+        </preConditions>
+        <createTable tableName="SCANNER_SETTINGS">
+            <column autoIncrement="true" name="ID" type="INT">
+                <constraints nullable="false" primaryKey="true"/>
+            </column>
+            <column name="NAME" type="VARCHAR(255)"/>
+            <column name="SCANNER_NAME" type="VARCHAR(255)"/>
+            <column name="QUALITY_ID" type="INT"/>
+            <column name="QUALITY" type="VARCHAR(255)"/>
+            <column name="IS_DEFAULT_PROFILE" type="BOOLEAN"/>
+            <column name="RESOLUTION" type="INT"/>
+            <column name="PAGE_SIZE" type="VARCHAR(255)"/>
+            <column name="PAGE_SIZE_NAME" type="VARCHAR(255)"/>
+            <column name="ROTATE" type="INT"/>
+            <column name="DPI" type="INT"/>
+            <column name="PIXEL_TYPE" type="VARCHAR(255)"/>
+            <column name="PIXEL_TYPE_NAME" type="VARCHAR(255)"/>
+            <column name="HOSPITAL_ID" type="VARCHAR(255)"/>
+            <column name="TENANT_ID" type="VARCHAR(255)"/>
+            <column name="CREATED_USER" type="VARCHAR(255)"/>
+            <column name="CREATED_DATE_TIME" type="TIMESTAMP"/>
+            <column name="UPDATED_DATE_TIME" type="TIMESTAMP"/>
+        </createTable>
+    </changeSet>
+    <changeSet author="mujahid.thoufeek" id="schema.default.2.12">
+        <preConditions onFail="MARK_RAN">
+            <not>
+                <tableExists tableName="ACTIVE_SESSIONS"/>
+            </not>
+        </preConditions>
+        <createTable tableName="ACTIVE_SESSIONS">
+            <column name="ID" type="VARCHAR(100)">
+                <constraints nullable="false" primaryKey="true"/>
+            </column>
+            <column name="DOCUMENT_ID" type="VARCHAR(100)">
+                <constraints nullable="false"/>
+            </column>
+            <column name="CREATED_DATE_TIME" type="TIMESTAMP">
+                <constraints nullable="false"/>
+            </column>
+        </createTable>
+    </changeSet>
+    <changeSet author="mujahid.thoufeek" id="schema.default.2.13">
+        <preConditions onFail="MARK_RAN">
+            <not>
+                <tableExists tableName="UPLOAD_SETTINGS"/>
+            </not>
+        </preConditions>
+        <createTable tableName="UPLOAD_SETTINGS">
+            <column autoIncrement="true" name="ID" type="INT">
+                <constraints nullable="false" primaryKey="true"/>
+            </column>
+            <column name="MAX_FILE_SIZE" type="INT">
+                <constraints nullable="false"/>
+            </column>
+            <column name="FILE_SIZE_UNIT" type="INT">
+                <constraints nullable="false"/>
+            </column>
+            <column name="IS_SIZE_LIMITED" type="BOOLEAN">
+                <constraints nullable="false"/>
+            </column>
+            <column name="FILE_TYPES" type="VARCHAR(255)">
+                <constraints nullable="false"/>
+            </column>
+            <column name="FILE_NAMING_FORMAT" type="VARCHAR(255)">
+                <constraints nullable="false"/>
+            </column>
+            <column name="HOSPITAL_ID" type="VARCHAR(255)">
+                <constraints nullable="false"/>
+            </column>
+            <column name="TENANT_ID" type="VARCHAR(255)">
+                <constraints nullable="false"/>
+            </column>
+            <column name="CREATED_USER" type="VARCHAR(255)">
+                <constraints nullable="false"/>
+            </column>
+            <column name="CREATED_DATE_TIME" type="TIMESTAMP">
+                <constraints nullable="false"/>
+            </column>
+            <column name="UPDATED_DATE_TIME" type="TIMESTAMP">
+                <constraints nullable="false"/>
+            </column>
+        </createTable>
+    </changeSet>
+    <changeSet author="mujahid.thoufeek" id="schema.default.2.14">
+        <preConditions onFail="MARK_RAN">
+            <not>
+                <tableExists tableName="USER_PREFERENCE"/>
+            </not>
+        </preConditions>
+        <createTable tableName="USER_PREFERENCE">
+            <column autoIncrement="true" name="ID" type="INT">
+                <constraints nullable="false" primaryKey="true"/>
+            </column>
+            <column name="USER" type="VARCHAR(255)">
+                <constraints nullable="false"/>
+            </column>
+            <column name="PREFERENCE_TYPE" type="VARCHAR(255)">
+                <constraints nullable="false"/>
+            </column>
+            <column name="PREFERENCE" type="INT">
+                <constraints nullable="false"/>
+            </column>
+            <column name="HOSPITAL_ID" type="VARCHAR(255)">
+                <constraints nullable="false"/>
+            </column>
+            <column name="TENANT_ID" type="VARCHAR(255)">
+                <constraints nullable="false"/>
+            </column>
+            <column name="CREATED_DATE_TIME" type="TIMESTAMP">
+                <constraints nullable="false"/>
+            </column>
+            <column name="UPDATED_DATE_TIME" type="TIMESTAMP">
+                <constraints nullable="false"/>
+            </column>
+        </createTable>
+    </changeSet>
+    <changeSet author="mujahid.thoufeek" id="schema.default.2.16">
+        <preConditions onFail="MARK_RAN">
+            <not>
+                <tableExists tableName="VIEW_COMPONENT_RESOURCES"/>
+            </not>
+        </preConditions>
+        <createTable tableName="VIEW_COMPONENT_RESOURCES">
+            <column autoIncrement="true" name="ID" type="INT">
+                <constraints nullable="false" primaryKey="true"/>
+            </column>
+            <column name="COMPONENT_SETTING_ID" type="INT">
+                <constraints nullable="false"/>
+            </column>
+            <column name="PROPERTY_ID" type="INT">
+                <constraints nullable="false"/>
+            </column>
+            <column name="PROPERTY_NAME" type="VARCHAR(255)">
+                <constraints nullable="false"/>
+            </column>
+            <column name="ATTRIBUTE_ID" type="INT">
+                <constraints nullable="false"/>
+            </column>
+            <column name="ATTRIBUTE_NAME" type="VARCHAR(255)">
+                <constraints nullable="false"/>
+            </column>
+            <column name="STATUS" type="BOOLEAN">
+                <constraints nullable="false"/>
+            </column>
+        </createTable>
+    </changeSet>
+    <changeSet author="mujahid.thoufeek" id="schema.default.2.17">
+        <preConditions onFail="MARK_RAN">
+            <not>
+                <tableExists tableName="VIEW_COMPONENT_SETTINGS"/>
+            </not>
+        </preConditions>
+        <createTable tableName="VIEW_COMPONENT_SETTINGS">
+            <column autoIncrement="true" name="ID" type="INT">
+                <constraints nullable="false" primaryKey="true"/>
+            </column>
+            <column name="COMPONENT" type="INT">
+                <constraints nullable="false"/>
+            </column>
+            <column name="HOSPITAL_ID" type="VARCHAR(255)">
+                <constraints nullable="false"/>
+            </column>
+            <column name="TENANT_ID" type="VARCHAR(255)">
+                <constraints nullable="false"/>
+            </column>
+            <column name="CREATED_USER" type="VARCHAR(255)">
+                <constraints nullable="false"/>
+            </column>
+            <column name="CREATED_DATE_TIME" type="TIMESTAMP">
+                <constraints nullable="false"/>
+            </column>
+            <column name="UPDATED_DATE_TIME" type="TIMESTAMP">
+                <constraints nullable="false"/>
+            </column>
+            <column name="STATUS" type="BOOLEAN">
+                <constraints nullable="false"/>
+            </column>
+        </createTable>
+    </changeSet>
+    <changeSet author="omal.cooray" id="schema.default.2.18">
+        <preConditions onFail="MARK_RAN">
+            <not>
+                <tableExists tableName="BUCKET_DETAILS"/>
+            </not>
+        </preConditions>
+        <createTable tableName="BUCKET_DETAILS">
+            <column autoIncrement="true" name="ID" type="INT">
+                <constraints nullable="false" primaryKey="true"/>
+            </column>
+            <column name="NAME" type="VARCHAR(45)">
+                <constraints nullable="false"/>
+            </column>
+            <column name="HOSPITAL_ID" type="VARCHAR(45)">
+                <constraints nullable="false"/>
+            </column>
+            <column name="TENANT_ID" type="VARCHAR(45)">
+                <constraints nullable="false"/>
+            </column>
+            <column defaultValueBoolean="true" name="STATUS" type="BOOLEAN">
+                <constraints nullable="false"/>
+            </column>
+            <column name="CREATED_DATE_TIME" type="TIMESTAMP">
+                <constraints nullable="false"/>
+            </column>
+            <column name="UPDATED_DATE_TIME" type="TIMESTAMP">
+                <constraints nullable="false"/>
+            </column>
+        </createTable>
+    </changeSet>
+
+    <changeSet author="harsha.madusanka" id="schema.default.2.19">
+        <preConditions onFail="MARK_RAN">
+            <tableExists tableName="FILE_DETAILS"/>
+            <columnExists tableName="FILE_DETAILS" columnName="seq"/>
+            <not>
+                <columnExists tableName="FILE_DETAILS" columnName="SEQ"/>
+            </not>
+        </preConditions>
+        <renameColumn tableName="FILE_DETAILS" oldColumnName="seq" newColumnName="SEQ" columnDataType="BIGINT"/>
+    </changeSet>
+
+</databaseChangeLog>

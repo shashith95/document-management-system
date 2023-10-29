@@ -1,0 +1,1774 @@
+<?xml version="1.1" encoding="UTF-8" standalone="no"?>
+<databaseChangeLog
+        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
+        xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-4.0.xsd"
+        objectQuotingStrategy="QUOTE_ALL_OBJECTS">
+    <changeSet author="mujahid.thoufeek" id="data.default.2.1">
+        <preConditions onFail="MARK_RAN">
+            <sqlCheck expectedResult="0">select count(*)
+                                         from "FILE_PROPERTY"
+                                         where "NAME" = 'Cluster MRN'</sqlCheck>
+        </preConditions>
+        <insert tableName="FILE_PROPERTY">
+            <column name="NAME" value="Cluster MRN"/>
+            <column name="IS_DELETABLE" valueBoolean="false"/>
+            <column name="IS_MANDATORY" valueBoolean="true"/>
+            <column name="IS_FREE_TEXT" valueBoolean="true"/>
+            <column name="IS_ADDABLE" valueBoolean="false"/>
+            <column name="PROPERTY_TYPE" valueNumeric="3"/>
+            <column name="TENANT_ID" value="0"/>
+            <column name="HOSPITAL_ID" value="0"/>
+            <column name="HIERARCHY_AVAILABLE" valueBoolean="true"/>
+            <column name="CREATED_DATE_TIME"
+                    valueComputed="SUBSTRING(DATE_FORMAT(now(3), &quot;%Y-%m-%dT%T.%f&quot;),1,23)"/>
+            <column name="UPDATED_DATE_TIME"
+                    valueComputed="SUBSTRING(DATE_FORMAT(now(3), &quot;%Y-%m-%dT%T.%f&quot;),1,23)"/>
+            <column name="CREATED_USER" value="0"/>
+            <column name="STATUS" valueBoolean="true"/>
+        </insert>
+        <modifySql dbms="postgresql">
+            <replace replace="SUBSTRING(DATE_FORMAT(now(3), &quot;%Y-%m-%dT%T.%f&quot;),1,23)" with="NOW()::timestamp"/>
+        </modifySql>
+        <modifySql dbms="oracle">
+            <replace replace="SUBSTRING(DATE_FORMAT(now(3), &quot;%Y-%m-%dT%T.%f&quot;),1,23)"
+                     with="TO_TIMESTAMP(SYSDATE)"/>
+        </modifySql>
+    </changeSet>
+
+    <changeSet author="mujahid.thoufeek" id="data.default.2.2">
+        <preConditions onFail="MARK_RAN">
+            <sqlCheck expectedResult="0">select count(*)
+                                         from "FILE_PROPERTY"
+                                         where "NAME" = 'Tenant'</sqlCheck>
+        </preConditions>
+        <insert tableName="FILE_PROPERTY">
+            <column name="NAME" value="Tenant"/>
+            <column name="IS_DELETABLE" valueBoolean="false"/>
+            <column name="IS_MANDATORY" valueBoolean="true"/>
+            <column name="IS_FREE_TEXT" valueBoolean="true"/>
+            <column name="IS_ADDABLE" valueBoolean="false"/>
+            <column name="PROPERTY_TYPE" valueNumeric="3"/>
+            <column name="TENANT_ID" value="0"/>
+            <column name="HOSPITAL_ID" value="0"/>
+            <column name="HIERARCHY_AVAILABLE" valueBoolean="true"/>
+            <column name="CREATED_DATE_TIME"
+                    valueComputed="SUBSTRING(DATE_FORMAT(now(3), &quot;%Y-%m-%dT%T.%f&quot;),1,23)"/>
+            <column name="UPDATED_DATE_TIME"
+                    valueComputed="SUBSTRING(DATE_FORMAT(now(3), &quot;%Y-%m-%dT%T.%f&quot;),1,23)"/>
+            <column name="CREATED_USER" value="0"/>
+            <column name="STATUS" valueBoolean="true"/>
+        </insert>
+        <modifySql dbms="postgresql">
+            <replace replace="SUBSTRING(DATE_FORMAT(now(3), &quot;%Y-%m-%dT%T.%f&quot;),1,23)" with="NOW()::timestamp"/>
+        </modifySql>
+        <modifySql dbms="oracle">
+            <replace replace="SUBSTRING(DATE_FORMAT(now(3), &quot;%Y-%m-%dT%T.%f&quot;),1,23)"
+                     with="TO_TIMESTAMP(SYSDATE)"/>
+        </modifySql>
+    </changeSet>
+
+    <changeSet author="mujahid.thoufeek" id="data.default.2.3">
+        <preConditions onFail="MARK_RAN">
+            <sqlCheck expectedResult="0">select count(*)
+                                         from "FILE_PROPERTY"
+                                         where "NAME" = 'Hospital'</sqlCheck>
+        </preConditions>
+        <insert tableName="FILE_PROPERTY">
+            <column name="NAME" value="Hospital"/>
+            <column name="IS_DELETABLE" valueBoolean="false"/>
+            <column name="IS_MANDATORY" valueBoolean="true"/>
+            <column name="IS_FREE_TEXT" valueBoolean="true"/>
+            <column name="IS_ADDABLE" valueBoolean="false"/>
+            <column name="PROPERTY_TYPE" valueNumeric="3"/>
+            <column name="TENANT_ID" value="0"/>
+            <column name="HOSPITAL_ID" value="0"/>
+            <column name="HIERARCHY_AVAILABLE" valueBoolean="true"/>
+            <column name="CREATED_DATE_TIME"
+                    valueComputed="SUBSTRING(DATE_FORMAT(now(3), &quot;%Y-%m-%dT%T.%f&quot;),1,23)"/>
+            <column name="UPDATED_DATE_TIME"
+                    valueComputed="SUBSTRING(DATE_FORMAT(now(3), &quot;%Y-%m-%dT%T.%f&quot;),1,23)"/>
+            <column name="CREATED_USER" value="0"/>
+            <column name="STATUS" valueBoolean="true"/>
+        </insert>
+        <modifySql dbms="postgresql">
+            <replace replace="SUBSTRING(DATE_FORMAT(now(3), &quot;%Y-%m-%dT%T.%f&quot;),1,23)" with="NOW()::timestamp"/>
+        </modifySql>
+        <modifySql dbms="oracle">
+            <replace replace="SUBSTRING(DATE_FORMAT(now(3), &quot;%Y-%m-%dT%T.%f&quot;),1,23)"
+                     with="TO_TIMESTAMP(SYSDATE)"/>
+        </modifySql>
+    </changeSet>
+    <changeSet author="mujahid.thoufeek" id="data.default.2.4">
+        <preConditions onFail="MARK_RAN">
+            <sqlCheck expectedResult="0">select count(*)
+                                         from "FILE_PROPERTY"
+                                         where "NAME" = 'Category'</sqlCheck>
+        </preConditions>
+        <insert tableName="FILE_PROPERTY">
+            <column name="NAME" value="Category"/>
+            <column name="IS_DELETABLE" valueBoolean="false"/>
+            <column name="IS_MANDATORY" valueBoolean="true"/>
+            <column name="IS_FREE_TEXT" valueBoolean="false"/>
+            <column name="IS_ADDABLE" valueBoolean="true"/>
+            <column name="PROPERTY_TYPE" valueNumeric="0"/>
+            <column name="TENANT_ID" value="0"/>
+            <column name="HOSPITAL_ID" value="0"/>
+            <column name="HIERARCHY_AVAILABLE" valueBoolean="true"/>
+            <column name="CREATED_DATE_TIME"
+                    valueComputed="SUBSTRING(DATE_FORMAT(now(3), &quot;%Y-%m-%dT%T.%f&quot;),1,23)"/>
+            <column name="UPDATED_DATE_TIME"
+                    valueComputed="SUBSTRING(DATE_FORMAT(now(3), &quot;%Y-%m-%dT%T.%f&quot;),1,23)"/>
+            <column name="CREATED_USER" value="0"/>
+            <column name="STATUS" valueBoolean="true"/>
+        </insert>
+        <modifySql dbms="postgresql">
+            <replace replace="SUBSTRING(DATE_FORMAT(now(3), &quot;%Y-%m-%dT%T.%f&quot;),1,23)" with="NOW()::timestamp"/>
+        </modifySql>
+        <modifySql dbms="oracle">
+            <replace replace="SUBSTRING(DATE_FORMAT(now(3), &quot;%Y-%m-%dT%T.%f&quot;),1,23)"
+                     with="TO_TIMESTAMP(SYSDATE)"/>
+        </modifySql>
+    </changeSet>
+    <changeSet author="mujahid.thoufeek" id="data.default.2.5">
+        <preConditions onFail="MARK_RAN">
+            <sqlCheck expectedResult="0">select count(*)
+                                         from "FILE_PROPERTY"
+                                         where "NAME" = 'Type'</sqlCheck>
+        </preConditions>
+        <insert tableName="FILE_PROPERTY">
+            <column name="NAME" value="Type"/>
+            <column name="IS_DELETABLE" valueBoolean="false"/>
+            <column name="IS_MANDATORY" valueBoolean="true"/>
+            <column name="IS_FREE_TEXT" valueBoolean="false"/>
+            <column name="IS_ADDABLE" valueBoolean="true"/>
+            <column name="PROPERTY_TYPE" valueNumeric="0"/>
+            <column name="TENANT_ID" value="0"/>
+            <column name="HOSPITAL_ID" value="0"/>
+            <column name="HIERARCHY_AVAILABLE" valueBoolean="true"/>
+            <column name="CREATED_DATE_TIME"
+                    valueComputed="SUBSTRING(DATE_FORMAT(now(3), &quot;%Y-%m-%dT%T.%f&quot;),1,23)"/>
+            <column name="UPDATED_DATE_TIME"
+                    valueComputed="SUBSTRING(DATE_FORMAT(now(3), &quot;%Y-%m-%dT%T.%f&quot;),1,23)"/>
+            <column name="CREATED_USER" value="0"/>
+            <column name="STATUS" valueBoolean="true"/>
+        </insert>
+        <modifySql dbms="postgresql">
+            <replace replace="SUBSTRING(DATE_FORMAT(now(3), &quot;%Y-%m-%dT%T.%f&quot;),1,23)" with="NOW()::timestamp"/>
+        </modifySql>
+        <modifySql dbms="oracle">
+            <replace replace="SUBSTRING(DATE_FORMAT(now(3), &quot;%Y-%m-%dT%T.%f&quot;),1,23)"
+                     with="TO_TIMESTAMP(SYSDATE)"/>
+        </modifySql>
+    </changeSet>
+    <changeSet author="mujahid.thoufeek" id="data.default.2.6">
+        <preConditions onFail="MARK_RAN">
+            <sqlCheck expectedResult="0">select count(*)
+                                         from "FILE_PROPERTY"
+                                         where "NAME" = 'Information Sensitivity'
+            </sqlCheck>
+        </preConditions>
+        <insert tableName="FILE_PROPERTY">
+            <column name="NAME" value="Information Sensitivity"/>
+            <column name="IS_DELETABLE" valueBoolean="false"/>
+            <column name="IS_MANDATORY" valueBoolean="true"/>
+            <column name="IS_FREE_TEXT" valueBoolean="false"/>
+            <column name="IS_ADDABLE" valueBoolean="true"/>
+            <column name="PROPERTY_TYPE" valueNumeric="0"/>
+            <column name="TENANT_ID" value="0"/>
+            <column name="HOSPITAL_ID" value="0"/>
+            <column name="HIERARCHY_AVAILABLE" valueBoolean="true"/>
+            <column name="CREATED_DATE_TIME"
+                    valueComputed="SUBSTRING(DATE_FORMAT(now(3), &quot;%Y-%m-%dT%T.%f&quot;),1,23)"/>
+            <column name="UPDATED_DATE_TIME"
+                    valueComputed="SUBSTRING(DATE_FORMAT(now(3), &quot;%Y-%m-%dT%T.%f&quot;),1,23)"/>
+            <column name="CREATED_USER" value="0"/>
+            <column name="STATUS" valueBoolean="true"/>
+        </insert>
+        <modifySql dbms="postgresql">
+            <replace replace="SUBSTRING(DATE_FORMAT(now(3), &quot;%Y-%m-%dT%T.%f&quot;),1,23)" with="NOW()::timestamp"/>
+        </modifySql>
+        <modifySql dbms="oracle">
+            <replace replace="SUBSTRING(DATE_FORMAT(now(3), &quot;%Y-%m-%dT%T.%f&quot;),1,23)"
+                     with="TO_TIMESTAMP(SYSDATE)"/>
+        </modifySql>
+    </changeSet>
+    <changeSet author="mujahid.thoufeek" id="data.default.2.7">
+        <preConditions onFail="MARK_RAN">
+            <sqlCheck expectedResult="0">select count(*)
+                                         from "FILE_PROPERTY"
+                                         where "NAME" = 'Appointment Number'</sqlCheck>
+        </preConditions>
+        <insert tableName="FILE_PROPERTY">
+            <column name="NAME" value="Appointment Number"/>
+            <column name="IS_DELETABLE" valueBoolean="false"/>
+            <column name="IS_MANDATORY" valueBoolean="false"/>
+            <column name="IS_FREE_TEXT" valueBoolean="true"/>
+            <column name="IS_ADDABLE" valueBoolean="false"/>
+            <column name="PROPERTY_TYPE" valueNumeric="1"/>
+            <column name="TENANT_ID" value="0"/>
+            <column name="HOSPITAL_ID" value="0"/>
+            <column name="HIERARCHY_AVAILABLE" valueBoolean="true"/>
+            <column name="CREATED_DATE_TIME"
+                    valueComputed="SUBSTRING(DATE_FORMAT(now(3), &quot;%Y-%m-%dT%T.%f&quot;),1,23)"/>
+            <column name="UPDATED_DATE_TIME"
+                    valueComputed="SUBSTRING(DATE_FORMAT(now(3), &quot;%Y-%m-%dT%T.%f&quot;),1,23)"/>
+            <column name="CREATED_USER" value="0"/>
+            <column name="STATUS" valueBoolean="true"/>
+        </insert>
+        <modifySql dbms="postgresql">
+            <replace replace="SUBSTRING(DATE_FORMAT(now(3), &quot;%Y-%m-%dT%T.%f&quot;),1,23)" with="NOW()::timestamp"/>
+        </modifySql>
+        <modifySql dbms="oracle">
+            <replace replace="SUBSTRING(DATE_FORMAT(now(3), &quot;%Y-%m-%dT%T.%f&quot;),1,23)"
+                     with="TO_TIMESTAMP(SYSDATE)"/>
+        </modifySql>
+    </changeSet>
+
+    <changeSet author="mujahid.thoufeek" id="data.default.2.8">
+        <preConditions onFail="MARK_RAN">
+            <sqlCheck expectedResult="0">select count(*)
+                                         from "FILE_PROPERTY"
+                                         where "NAME" = 'Clinic'</sqlCheck>
+        </preConditions>
+        <insert tableName="FILE_PROPERTY">
+            <column name="NAME" value="Clinic"/>
+            <column name="IS_DELETABLE" valueBoolean="false"/>
+            <column name="IS_MANDATORY" valueBoolean="false"/>
+            <column name="IS_FREE_TEXT" valueBoolean="false"/>
+            <column name="IS_ADDABLE" valueBoolean="false"/>
+            <column name="PROPERTY_TYPE" valueNumeric="0"/>
+            <column name="TENANT_ID" value="0"/>
+            <column name="HOSPITAL_ID" value="0"/>
+            <column name="HIERARCHY_AVAILABLE" valueBoolean="true"/>
+            <column name="CREATED_DATE_TIME"
+                    valueComputed="SUBSTRING(DATE_FORMAT(now(3), &quot;%Y-%m-%dT%T.%f&quot;),1,23)"/>
+            <column name="UPDATED_DATE_TIME"
+                    valueComputed="SUBSTRING(DATE_FORMAT(now(3), &quot;%Y-%m-%dT%T.%f&quot;),1,23)"/>
+            <column name="CREATED_USER" value="0"/>
+            <column name="STATUS" valueBoolean="true"/>
+        </insert>
+        <modifySql dbms="postgresql">
+            <replace replace="SUBSTRING(DATE_FORMAT(now(3), &quot;%Y-%m-%dT%T.%f&quot;),1,23)" with="NOW()::timestamp"/>
+        </modifySql>
+        <modifySql dbms="oracle">
+            <replace replace="SUBSTRING(DATE_FORMAT(now(3), &quot;%Y-%m-%dT%T.%f&quot;),1,23)"
+                     with="TO_TIMESTAMP(SYSDATE)"/>
+        </modifySql>
+    </changeSet>
+    <changeSet author="mujahid.thoufeek" id="data.default.2.9">
+        <preConditions onFail="MARK_RAN">
+            <sqlCheck expectedResult="0">select count(*)
+                                         from "FILE_PROPERTY"
+                                         where "NAME" = 'Document Date'</sqlCheck>
+        </preConditions>
+        <insert tableName="FILE_PROPERTY">
+            <column name="NAME" value="Document Date"/>
+            <column name="IS_DELETABLE" valueBoolean="false"/>
+            <column name="IS_MANDATORY" valueBoolean="false"/>
+            <column name="IS_FREE_TEXT" valueBoolean="true"/>
+            <column name="IS_ADDABLE" valueBoolean="false"/>
+            <column name="PROPERTY_TYPE" valueNumeric="4"/>
+            <column name="TENANT_ID" value="0"/>
+            <column name="HOSPITAL_ID" value="0"/>
+            <column name="HIERARCHY_AVAILABLE" valueBoolean="false"/>
+            <column name="CREATED_DATE_TIME"
+                    valueComputed="SUBSTRING(DATE_FORMAT(now(3), &quot;%Y-%m-%dT%T.%f&quot;),1,23)"/>
+            <column name="UPDATED_DATE_TIME"
+                    valueComputed="SUBSTRING(DATE_FORMAT(now(3), &quot;%Y-%m-%dT%T.%f&quot;),1,23)"/>
+            <column name="CREATED_USER" value="0"/>
+            <column name="STATUS" valueBoolean="true"/>
+        </insert>
+        <modifySql dbms="postgresql">
+            <replace replace="SUBSTRING(DATE_FORMAT(now(3), &quot;%Y-%m-%dT%T.%f&quot;),1,23)" with="NOW()::timestamp"/>
+        </modifySql>
+        <modifySql dbms="oracle">
+            <replace replace="SUBSTRING(DATE_FORMAT(now(3), &quot;%Y-%m-%dT%T.%f&quot;),1,23)"
+                     with="TO_TIMESTAMP(SYSDATE)"/>
+        </modifySql>
+    </changeSet>
+    <changeSet author="mujahid.thoufeek" id="data.default.2.10">
+        <preConditions onFail="MARK_RAN">
+            <sqlCheck expectedResult="0">select count(*)
+                                         from "FILE_PROPERTY"
+                                         where "NAME" = 'Upload Date Time'</sqlCheck>
+        </preConditions>
+        <insert tableName="FILE_PROPERTY">
+            <column name="NAME" value="Upload Date Time"/>
+            <column name="IS_DELETABLE" valueBoolean="false"/>
+            <column name="IS_MANDATORY" valueBoolean="true"/>
+            <column name="IS_FREE_TEXT" valueBoolean="true"/>
+            <column name="IS_ADDABLE" valueBoolean="false"/>
+            <column name="PROPERTY_TYPE" valueNumeric="5"/>
+            <column name="TENANT_ID" value="0"/>
+            <column name="HOSPITAL_ID" value="0"/>
+            <column name="HIERARCHY_AVAILABLE" valueBoolean="false"/>
+            <column name="CREATED_DATE_TIME"
+                    valueComputed="SUBSTRING(DATE_FORMAT(now(3), &quot;%Y-%m-%dT%T.%f&quot;),1,23)"/>
+            <column name="UPDATED_DATE_TIME"
+                    valueComputed="SUBSTRING(DATE_FORMAT(now(3), &quot;%Y-%m-%dT%T.%f&quot;),1,23)"/>
+            <column name="CREATED_USER" value="0"/>
+            <column name="STATUS" valueBoolean="true"/>
+        </insert>
+        <modifySql dbms="postgresql">
+            <replace replace="SUBSTRING(DATE_FORMAT(now(3), &quot;%Y-%m-%dT%T.%f&quot;),1,23)" with="NOW()::timestamp"/>
+        </modifySql>
+        <modifySql dbms="oracle">
+            <replace replace="SUBSTRING(DATE_FORMAT(now(3), &quot;%Y-%m-%dT%T.%f&quot;),1,23)"
+                     with="TO_TIMESTAMP(SYSDATE)"/>
+        </modifySql>
+    </changeSet>
+    <changeSet author="mujahid.thoufeek" id="data.default.2.11">
+        <preConditions onFail="MARK_RAN">
+            <sqlCheck expectedResult="0">select count(*)
+                                         from "FILE_PROPERTY"
+                                         where "NAME" = 'Uploader Name'</sqlCheck>
+        </preConditions>
+        <insert tableName="FILE_PROPERTY">
+            <column name="NAME" value="Uploader Name"/>
+            <column name="IS_DELETABLE" valueBoolean="false"/>
+            <column name="IS_MANDATORY" valueBoolean="true"/>
+            <column name="IS_FREE_TEXT" valueBoolean="true"/>
+            <column name="IS_ADDABLE" valueBoolean="false"/>
+            <column name="PROPERTY_TYPE" valueNumeric="1"/>
+            <column name="TENANT_ID" value="0"/>
+            <column name="HOSPITAL_ID" value="0"/>
+            <column name="HIERARCHY_AVAILABLE" valueBoolean="true"/>
+            <column name="CREATED_DATE_TIME"
+                    valueComputed="SUBSTRING(DATE_FORMAT(now(3), &quot;%Y-%m-%dT%T.%f&quot;),1,23)"/>
+            <column name="UPDATED_DATE_TIME"
+                    valueComputed="SUBSTRING(DATE_FORMAT(now(3), &quot;%Y-%m-%dT%T.%f&quot;),1,23)"/>
+            <column name="CREATED_USER" value="0"/>
+            <column name="STATUS" valueBoolean="true"/>
+        </insert>
+        <modifySql dbms="postgresql">
+            <replace replace="SUBSTRING(DATE_FORMAT(now(3), &quot;%Y-%m-%dT%T.%f&quot;),1,23)" with="NOW()::timestamp"/>
+        </modifySql>
+        <modifySql dbms="oracle">
+            <replace replace="SUBSTRING(DATE_FORMAT(now(3), &quot;%Y-%m-%dT%T.%f&quot;),1,23)"
+                     with="TO_TIMESTAMP(SYSDATE)"/>
+        </modifySql>
+    </changeSet>
+    <changeSet author="mujahid.thoufeek" id="data.default.2.12">
+        <preConditions onFail="MARK_RAN">
+            <sqlCheck expectedResult="0">select count(*)
+                                         from "FILE_PROPERTY"
+                                         where "NAME" = 'Verifier Name'</sqlCheck>
+        </preConditions>
+        <insert tableName="FILE_PROPERTY">
+            <column name="NAME" value="Verifier Name"/>
+            <column name="IS_DELETABLE" valueBoolean="false"/>
+            <column name="IS_MANDATORY" valueBoolean="false"/>
+            <column name="IS_FREE_TEXT" valueBoolean="true"/>
+            <column name="IS_ADDABLE" valueBoolean="false"/>
+            <column name="PROPERTY_TYPE" valueNumeric="1"/>
+            <column name="TENANT_ID" value="0"/>
+            <column name="HOSPITAL_ID" value="0"/>
+            <column name="HIERARCHY_AVAILABLE" valueBoolean="true"/>
+            <column name="CREATED_DATE_TIME"
+                    valueComputed="SUBSTRING(DATE_FORMAT(now(3), &quot;%Y-%m-%dT%T.%f&quot;),1,23)"/>
+            <column name="UPDATED_DATE_TIME"
+                    valueComputed="SUBSTRING(DATE_FORMAT(now(3), &quot;%Y-%m-%dT%T.%f&quot;),1,23)"/>
+            <column name="CREATED_USER" value="0"/>
+            <column name="STATUS" valueBoolean="true"/>
+        </insert>
+        <modifySql dbms="postgresql">
+            <replace replace="SUBSTRING(DATE_FORMAT(now(3), &quot;%Y-%m-%dT%T.%f&quot;),1,23)" with="NOW()::timestamp"/>
+        </modifySql>
+        <modifySql dbms="oracle">
+            <replace replace="SUBSTRING(DATE_FORMAT(now(3), &quot;%Y-%m-%dT%T.%f&quot;),1,23)"
+                     with="TO_TIMESTAMP(SYSDATE)"/>
+        </modifySql>
+    </changeSet>
+    <changeSet author="mujahid.thoufeek" id="data.default.2.13">
+        <preConditions onFail="MARK_RAN">
+            <sqlCheck expectedResult="0">select count(*)
+                                         from "FILE_PROPERTY"
+                                         where "NAME" = 'Verification Date Time'
+            </sqlCheck>
+        </preConditions>
+        <insert tableName="FILE_PROPERTY">
+            <column name="NAME" value="Verification Date Time"/>
+            <column name="IS_DELETABLE" valueBoolean="false"/>
+            <column name="IS_MANDATORY" valueBoolean="false"/>
+            <column name="IS_FREE_TEXT" valueBoolean="true"/>
+            <column name="IS_ADDABLE" valueBoolean="false"/>
+            <column name="PROPERTY_TYPE" valueNumeric="5"/>
+            <column name="TENANT_ID" value="0"/>
+            <column name="HOSPITAL_ID" value="0"/>
+            <column name="HIERARCHY_AVAILABLE" valueBoolean="false"/>
+            <column name="CREATED_DATE_TIME"
+                    valueComputed="SUBSTRING(DATE_FORMAT(now(3), &quot;%Y-%m-%dT%T.%f&quot;),1,23)"/>
+            <column name="UPDATED_DATE_TIME"
+                    valueComputed="SUBSTRING(DATE_FORMAT(now(3), &quot;%Y-%m-%dT%T.%f&quot;),1,23)"/>
+            <column name="CREATED_USER" value="0"/>
+            <column name="STATUS" valueBoolean="true"/>
+        </insert>
+        <modifySql dbms="postgresql">
+            <replace replace="SUBSTRING(DATE_FORMAT(now(3), &quot;%Y-%m-%dT%T.%f&quot;),1,23)" with="NOW()::timestamp"/>
+        </modifySql>
+        <modifySql dbms="oracle">
+            <replace replace="SUBSTRING(DATE_FORMAT(now(3), &quot;%Y-%m-%dT%T.%f&quot;),1,23)"
+                     with="TO_TIMESTAMP(SYSDATE)"/>
+        </modifySql>
+    </changeSet>
+    <changeSet author="mujahid.thoufeek" id="data.default.2.14">
+        <preConditions onFail="MARK_RAN">
+            <sqlCheck expectedResult="0">select count(*)
+                                         from "FILE_PROPERTY"
+                                         where "NAME" = 'Verification Status'
+            </sqlCheck>
+        </preConditions>
+        <insert tableName="FILE_PROPERTY">
+            <column name="NAME" value="Verification Status"/>
+            <column name="IS_DELETABLE" valueBoolean="false"/>
+            <column name="IS_MANDATORY" valueBoolean="true"/>
+            <column name="IS_FREE_TEXT" valueBoolean="false"/>
+            <column name="IS_ADDABLE" valueBoolean="false"/>
+            <column name="PROPERTY_TYPE" valueNumeric="0"/>
+            <column name="TENANT_ID" value="0"/>
+            <column name="HOSPITAL_ID" value="0"/>
+            <column name="HIERARCHY_AVAILABLE" valueBoolean="true"/>
+            <column name="CREATED_DATE_TIME"
+                    valueComputed="SUBSTRING(DATE_FORMAT(now(3), &quot;%Y-%m-%dT%T.%f&quot;),1,23)"/>
+            <column name="UPDATED_DATE_TIME"
+                    valueComputed="SUBSTRING(DATE_FORMAT(now(3), &quot;%Y-%m-%dT%T.%f&quot;),1,23)"/>
+            <column name="CREATED_USER" value="0"/>
+            <column name="STATUS" valueBoolean="true"/>
+        </insert>
+        <modifySql dbms="postgresql">
+            <replace replace="SUBSTRING(DATE_FORMAT(now(3), &quot;%Y-%m-%dT%T.%f&quot;),1,23)" with="NOW()::timestamp"/>
+        </modifySql>
+        <modifySql dbms="oracle">
+            <replace replace="SUBSTRING(DATE_FORMAT(now(3), &quot;%Y-%m-%dT%T.%f&quot;),1,23)"
+                     with="TO_TIMESTAMP(SYSDATE)"/>
+        </modifySql>
+    </changeSet>
+    <changeSet author="mujahid.thoufeek" id="data.default.2.15">
+        <preConditions onFail="MARK_RAN">
+            <sqlCheck expectedResult="0">select count(*)
+                                         from "FILE_PROPERTY"
+                                         where "NAME" = 'Status'</sqlCheck>
+        </preConditions>
+        <insert tableName="FILE_PROPERTY">
+            <column name="NAME" value="Status"/>
+            <column name="IS_DELETABLE" valueBoolean="false"/>
+            <column name="IS_MANDATORY" valueBoolean="true"/>
+            <column name="IS_FREE_TEXT" valueBoolean="true"/>
+            <column name="IS_ADDABLE" valueBoolean="false"/>
+            <column name="PROPERTY_TYPE" valueNumeric="0"/>
+            <column name="TENANT_ID" value="0"/>
+            <column name="HOSPITAL_ID" value="0"/>
+            <column name="HIERARCHY_AVAILABLE" valueBoolean="false"/>
+            <column name="CREATED_DATE_TIME"
+                    valueComputed="SUBSTRING(DATE_FORMAT(now(3), &quot;%Y-%m-%dT%T.%f&quot;),1,23)"/>
+            <column name="UPDATED_DATE_TIME"
+                    valueComputed="SUBSTRING(DATE_FORMAT(now(3), &quot;%Y-%m-%dT%T.%f&quot;),1,23)"/>
+            <column name="CREATED_USER" value="0"/>
+            <column name="STATUS" valueBoolean="true"/>
+        </insert>
+        <modifySql dbms="postgresql">
+            <replace replace="SUBSTRING(DATE_FORMAT(now(3), &quot;%Y-%m-%dT%T.%f&quot;),1,23)" with="NOW()::timestamp"/>
+        </modifySql>
+        <modifySql dbms="oracle">
+            <replace replace="SUBSTRING(DATE_FORMAT(now(3), &quot;%Y-%m-%dT%T.%f&quot;),1,23)"
+                     with="TO_TIMESTAMP(SYSDATE)"/>
+        </modifySql>
+    </changeSet>
+
+
+    <changeSet author="mujahid.thoufeek" id="data.default.2.16">
+        <preConditions onFail="MARK_RAN">
+            <sqlCheck expectedResult="0">select count(*)
+                                         from "PROPERTY_ATTRIBUTES"
+                                         where "PROPERTY_ID" in
+                                               (select "ID" from "FILE_PROPERTY" where "NAME" = 'Category')
+                                           and "NAME" = 'Medical Records'
+            </sqlCheck>
+        </preConditions>
+        <insert tableName="PROPERTY_ATTRIBUTES">
+            <column name="PROPERTY_ID"
+                    valueComputed="4"/>
+            <column name="NAME" value="Medical Records"/>
+            <column name="IS_DELETABLE" valueBoolean="false"/>
+            <column name="HOSPITAL_ID" value="0"/>
+            <column name="TENANT_ID" value="0"/>
+            <column name="CREATED_USER" value="0"/>
+            <column name="CREATED_DATE_TIME"
+                    valueComputed="SUBSTRING(DATE_FORMAT(now(3), &quot;%Y-%m-%dT%T.%f&quot;),1,23)"/>
+            <column name="UPDATED_DATE_TIME"
+                    valueComputed="SUBSTRING(DATE_FORMAT(now(3), &quot;%Y-%m-%dT%T.%f&quot;),1,23)"/>
+        </insert>
+        <modifySql dbms="postgresql">
+            <replace replace="SUBSTRING(DATE_FORMAT(now(3), &quot;%Y-%m-%dT%T.%f&quot;),1,23)" with="NOW()::timestamp"/>
+        </modifySql>
+        <modifySql dbms="oracle">
+            <replace replace="SUBSTRING(DATE_FORMAT(now(3), &quot;%Y-%m-%dT%T.%f&quot;),1,23)"
+                     with="TO_TIMESTAMP(SYSDATE)"/>
+        </modifySql>
+    </changeSet>
+    <changeSet author="mujahid.thoufeek" id="data.default.2.17">
+        <preConditions onFail="MARK_RAN">
+            <sqlCheck expectedResult="0">select count(*)
+                                         from "PROPERTY_ATTRIBUTES"
+                                         where "PROPERTY_ID" in
+                                               (select "ID" from "FILE_PROPERTY" where "NAME" = 'Category')
+                                           and "NAME" = 'Financial Records'
+            </sqlCheck>
+        </preConditions>
+        <insert tableName="PROPERTY_ATTRIBUTES">
+            <column name="PROPERTY_ID"
+                    valueComputed="4"/>
+            <column name="NAME" value="Financial Records"/>
+            <column name="IS_DELETABLE" valueBoolean="false"/>
+            <column name="HOSPITAL_ID" value="0"/>
+            <column name="TENANT_ID" value="0"/>
+            <column name="CREATED_USER" value="0"/>
+            <column name="CREATED_DATE_TIME"
+                    valueComputed="SUBSTRING(DATE_FORMAT(now(3), &quot;%Y-%m-%dT%T.%f&quot;),1,23)"/>
+            <column name="UPDATED_DATE_TIME"
+                    valueComputed="SUBSTRING(DATE_FORMAT(now(3), &quot;%Y-%m-%dT%T.%f&quot;),1,23)"/>
+        </insert>
+        <modifySql dbms="postgresql">
+            <replace replace="SUBSTRING(DATE_FORMAT(now(3), &quot;%Y-%m-%dT%T.%f&quot;),1,23)" with="NOW()::timestamp"/>
+        </modifySql>
+        <modifySql dbms="oracle">
+            <replace replace="SUBSTRING(DATE_FORMAT(now(3), &quot;%Y-%m-%dT%T.%f&quot;),1,23)"
+                     with="TO_TIMESTAMP(SYSDATE)"/>
+        </modifySql>
+    </changeSet>
+    <changeSet author="mujahid.thoufeek" id="data.default.2.18">
+        <preConditions onFail="MARK_RAN">
+            <sqlCheck expectedResult="0">select count(*)
+                                         from "PROPERTY_ATTRIBUTES"
+                                         where "PROPERTY_ID" in
+                                               (select "ID" from "FILE_PROPERTY" where "NAME" = 'Category')
+                                           and "NAME" = 'Administrative Records'
+            </sqlCheck>
+        </preConditions>
+        <insert tableName="PROPERTY_ATTRIBUTES">
+            <column name="PROPERTY_ID"
+                    valueComputed="4"/>
+            <column name="NAME" value="Administrative Records"/>
+            <column name="IS_DELETABLE" valueBoolean="false"/>
+            <column name="HOSPITAL_ID" value="0"/>
+            <column name="TENANT_ID" value="0"/>
+            <column name="CREATED_USER" value="0"/>
+            <column name="CREATED_DATE_TIME"
+                    valueComputed="SUBSTRING(DATE_FORMAT(now(3), &quot;%Y-%m-%dT%T.%f&quot;),1,23)"/>
+            <column name="UPDATED_DATE_TIME"
+                    valueComputed="SUBSTRING(DATE_FORMAT(now(3), &quot;%Y-%m-%dT%T.%f&quot;),1,23)"/>
+        </insert>
+        <modifySql dbms="postgresql">
+            <replace replace="SUBSTRING(DATE_FORMAT(now(3), &quot;%Y-%m-%dT%T.%f&quot;),1,23)" with="NOW()::timestamp"/>
+        </modifySql>
+        <modifySql dbms="oracle">
+            <replace replace="SUBSTRING(DATE_FORMAT(now(3), &quot;%Y-%m-%dT%T.%f&quot;),1,23)"
+                     with="TO_TIMESTAMP(SYSDATE)"/>
+        </modifySql>
+    </changeSet>
+    <changeSet author="mujahid.thoufeek" id="data.default.2.19">
+        <preConditions onFail="MARK_RAN">
+            <sqlCheck expectedResult="0">select count(*)
+                                         from "PROPERTY_ATTRIBUTES"
+                                         where "PROPERTY_ID" in (select "ID" from "FILE_PROPERTY" where "NAME" = 'Type')
+                                           and "NAME" = 'Lab Reports'
+            </sqlCheck>
+        </preConditions>
+        <insert tableName="PROPERTY_ATTRIBUTES">
+            <column name="PROPERTY_ID"
+                    valueComputed="5"/>
+            <column name="NAME" value="Lab Reports"/>
+            <column name="IS_DELETABLE" valueBoolean="false"/>
+            <column name="HOSPITAL_ID" value="0"/>
+            <column name="TENANT_ID" value="0"/>
+            <column name="CREATED_USER" value="0"/>
+            <column name="CREATED_DATE_TIME"
+                    valueComputed="SUBSTRING(DATE_FORMAT(now(3), &quot;%Y-%m-%dT%T.%f&quot;),1,23)"/>
+            <column name="UPDATED_DATE_TIME"
+                    valueComputed="SUBSTRING(DATE_FORMAT(now(3), &quot;%Y-%m-%dT%T.%f&quot;),1,23)"/>
+        </insert>
+        <modifySql dbms="postgresql">
+            <replace replace="SUBSTRING(DATE_FORMAT(now(3), &quot;%Y-%m-%dT%T.%f&quot;),1,23)" with="NOW()::timestamp"/>
+        </modifySql>
+        <modifySql dbms="oracle">
+            <replace replace="SUBSTRING(DATE_FORMAT(now(3), &quot;%Y-%m-%dT%T.%f&quot;),1,23)"
+                     with="TO_TIMESTAMP(SYSDATE)"/>
+        </modifySql>
+    </changeSet>
+    <changeSet author="mujahid.thoufeek" id="data.default.2.20">
+        <preConditions onFail="MARK_RAN">
+            <sqlCheck expectedResult="0">select count(*)
+                                         from "PROPERTY_ATTRIBUTES"
+                                         where "PROPERTY_ID" in (select "ID" from "FILE_PROPERTY" where "NAME" = 'Type')
+                                           and "NAME" = 'Prescriptions'
+            </sqlCheck>
+        </preConditions>
+        <insert tableName="PROPERTY_ATTRIBUTES">
+            <column name="PROPERTY_ID"
+                    valueComputed="5"/>
+            <column name="NAME" value="Prescriptions"/>
+            <column name="IS_DELETABLE" valueBoolean="false"/>
+            <column name="HOSPITAL_ID" value="0"/>
+            <column name="TENANT_ID" value="0"/>
+            <column name="CREATED_USER" value="0"/>
+            <column name="CREATED_DATE_TIME"
+                    valueComputed="SUBSTRING(DATE_FORMAT(now(3), &quot;%Y-%m-%dT%T.%f&quot;),1,23)"/>
+            <column name="UPDATED_DATE_TIME"
+                    valueComputed="SUBSTRING(DATE_FORMAT(now(3), &quot;%Y-%m-%dT%T.%f&quot;),1,23)"/>
+        </insert>
+        <modifySql dbms="postgresql">
+            <replace replace="SUBSTRING(DATE_FORMAT(now(3), &quot;%Y-%m-%dT%T.%f&quot;),1,23)" with="NOW()::timestamp"/>
+        </modifySql>
+        <modifySql dbms="oracle">
+            <replace replace="SUBSTRING(DATE_FORMAT(now(3), &quot;%Y-%m-%dT%T.%f&quot;),1,23)"
+                     with="TO_TIMESTAMP(SYSDATE)"/>
+        </modifySql>
+    </changeSet>
+    <changeSet author="mujahid.thoufeek" id="data.default.2.21">
+        <preConditions onFail="MARK_RAN">
+            <sqlCheck expectedResult="0">select count(*)
+                                         from "PROPERTY_ATTRIBUTES"
+                                         where "PROPERTY_ID" in (select "ID" from "FILE_PROPERTY" where "NAME" = 'Type')
+                                           and "NAME" = 'Consents'
+            </sqlCheck>
+        </preConditions>
+        <insert tableName="PROPERTY_ATTRIBUTES">
+            <column name="PROPERTY_ID"
+                    valueComputed="5"/>
+            <column name="NAME" value="Consents"/>
+            <column name="IS_DELETABLE" valueBoolean="false"/>
+            <column name="HOSPITAL_ID" value="0"/>
+            <column name="TENANT_ID" value="0"/>
+            <column name="CREATED_USER" value="0"/>
+            <column name="CREATED_DATE_TIME"
+                    valueComputed="SUBSTRING(DATE_FORMAT(now(3), &quot;%Y-%m-%dT%T.%f&quot;),1,23)"/>
+            <column name="UPDATED_DATE_TIME"
+                    valueComputed="SUBSTRING(DATE_FORMAT(now(3), &quot;%Y-%m-%dT%T.%f&quot;),1,23)"/>
+        </insert>
+        <modifySql dbms="postgresql">
+            <replace replace="SUBSTRING(DATE_FORMAT(now(3), &quot;%Y-%m-%dT%T.%f&quot;),1,23)" with="NOW()::timestamp"/>
+        </modifySql>
+        <modifySql dbms="oracle">
+            <replace replace="SUBSTRING(DATE_FORMAT(now(3), &quot;%Y-%m-%dT%T.%f&quot;),1,23)"
+                     with="TO_TIMESTAMP(SYSDATE)"/>
+        </modifySql>
+    </changeSet>
+    <changeSet author="mujahid.thoufeek" id="data.default.2.22">
+        <preConditions onFail="MARK_RAN">
+            <sqlCheck expectedResult="0">select count(*)
+                                         from "PROPERTY_ATTRIBUTES"
+                                         where "PROPERTY_ID" in (select "ID"
+                                                                 from "FILE_PROPERTY"
+                                                                 where "NAME" = 'Information Sensitivity')
+                                           and "NAME" = 'Low'
+            </sqlCheck>
+        </preConditions>
+        <insert tableName="PROPERTY_ATTRIBUTES">
+            <column name="PROPERTY_ID"
+                    valueComputed="6"/>
+            <column name="NAME" value="Low"/>
+            <column name="IS_DELETABLE" valueBoolean="false"/>
+            <column name="HOSPITAL_ID" value="0"/>
+            <column name="TENANT_ID" value="0"/>
+            <column name="CREATED_USER" value="0"/>
+            <column name="CREATED_DATE_TIME"
+                    valueComputed="SUBSTRING(DATE_FORMAT(now(3), &quot;%Y-%m-%dT%T.%f&quot;),1,23)"/>
+            <column name="UPDATED_DATE_TIME"
+                    valueComputed="SUBSTRING(DATE_FORMAT(now(3), &quot;%Y-%m-%dT%T.%f&quot;),1,23)"/>
+        </insert>
+        <modifySql dbms="postgresql">
+            <replace replace="SUBSTRING(DATE_FORMAT(now(3), &quot;%Y-%m-%dT%T.%f&quot;),1,23)" with="NOW()::timestamp"/>
+        </modifySql>
+        <modifySql dbms="oracle">
+            <replace replace="SUBSTRING(DATE_FORMAT(now(3), &quot;%Y-%m-%dT%T.%f&quot;),1,23)"
+                     with="TO_TIMESTAMP(SYSDATE)"/>
+        </modifySql>
+    </changeSet>
+    <changeSet author="mujahid.thoufeek" id="data.default.2.23">
+        <preConditions onFail="MARK_RAN">
+            <sqlCheck expectedResult="0">select count(*)
+                                         from "PROPERTY_ATTRIBUTES"
+                                         where "PROPERTY_ID" in (select "ID"
+                                                                 from "FILE_PROPERTY"
+                                                                 where "NAME" = 'Information Sensitivity')
+                                           and "NAME" = 'Normal'
+            </sqlCheck>
+        </preConditions>
+        <insert tableName="PROPERTY_ATTRIBUTES">
+            <column name="PROPERTY_ID"
+                    valueComputed="6"/>
+            <column name="NAME" value="Normal"/>
+            <column name="IS_DELETABLE" valueBoolean="false"/>
+            <column name="HOSPITAL_ID" value="0"/>
+            <column name="TENANT_ID" value="0"/>
+            <column name="CREATED_USER" value="0"/>
+            <column name="CREATED_DATE_TIME"
+                    valueComputed="SUBSTRING(DATE_FORMAT(now(3), &quot;%Y-%m-%dT%T.%f&quot;),1,23)"/>
+            <column name="UPDATED_DATE_TIME"
+                    valueComputed="SUBSTRING(DATE_FORMAT(now(3), &quot;%Y-%m-%dT%T.%f&quot;),1,23)"/>
+        </insert>
+        <modifySql dbms="postgresql">
+            <replace replace="SUBSTRING(DATE_FORMAT(now(3), &quot;%Y-%m-%dT%T.%f&quot;),1,23)" with="NOW()::timestamp"/>
+        </modifySql>
+        <modifySql dbms="oracle">
+            <replace replace="SUBSTRING(DATE_FORMAT(now(3), &quot;%Y-%m-%dT%T.%f&quot;),1,23)"
+                     with="TO_TIMESTAMP(SYSDATE)"/>
+        </modifySql>
+    </changeSet>
+    <changeSet author="mujahid.thoufeek" id="data.default.2.24">
+        <preConditions onFail="MARK_RAN">
+            <sqlCheck expectedResult="0">select count(*)
+                                         from "PROPERTY_ATTRIBUTES"
+                                         where "PROPERTY_ID" in (select "ID"
+                                                                 from "FILE_PROPERTY"
+                                                                 where "NAME" = 'Information Sensitivity')
+                                           and "NAME" = 'High'
+            </sqlCheck>
+        </preConditions>
+        <insert tableName="PROPERTY_ATTRIBUTES">
+            <column name="PROPERTY_ID"
+                    valueComputed="6"/>
+            <column name="NAME" value="High"/>
+            <column name="IS_DELETABLE" valueBoolean="false"/>
+            <column name="HOSPITAL_ID" value="0"/>
+            <column name="TENANT_ID" value="0"/>
+            <column name="CREATED_USER" value="0"/>
+            <column name="CREATED_DATE_TIME"
+                    valueComputed="SUBSTRING(DATE_FORMAT(now(3), &quot;%Y-%m-%dT%T.%f&quot;),1,23)"/>
+            <column name="UPDATED_DATE_TIME"
+                    valueComputed="SUBSTRING(DATE_FORMAT(now(3), &quot;%Y-%m-%dT%T.%f&quot;),1,23)"/>
+        </insert>
+        <modifySql dbms="postgresql">
+            <replace replace="SUBSTRING(DATE_FORMAT(now(3), &quot;%Y-%m-%dT%T.%f&quot;),1,23)" with="NOW()::timestamp"/>
+        </modifySql>
+        <modifySql dbms="oracle">
+            <replace replace="SUBSTRING(DATE_FORMAT(now(3), &quot;%Y-%m-%dT%T.%f&quot;),1,23)"
+                     with="TO_TIMESTAMP(SYSDATE)"/>
+        </modifySql>
+    </changeSet>
+    <changeSet author="mujahid.thoufeek" id="data.default.2.25">
+        <preConditions onFail="MARK_RAN">
+            <sqlCheck expectedResult="0">select count(*)
+                                         from "PROPERTY_ATTRIBUTES"
+                                         where "PROPERTY_ID" in
+                                               (select "ID" from "FILE_PROPERTY" where "NAME" = 'Verification Status')
+                                           and "NAME" = 'Verified'
+            </sqlCheck>
+        </preConditions>
+        <insert tableName="PROPERTY_ATTRIBUTES">
+            <column name="PROPERTY_ID"
+                    valueComputed="14"/>
+            <column name="NAME" value="Verified"/>
+            <column name="IS_DELETABLE" valueBoolean="false"/>
+            <column name="HOSPITAL_ID" value="0"/>
+            <column name="TENANT_ID" value="0"/>
+            <column name="CREATED_USER" value="0"/>
+            <column name="CREATED_DATE_TIME"
+                    valueComputed="SUBSTRING(DATE_FORMAT(now(3), &quot;%Y-%m-%dT%T.%f&quot;),1,23)"/>
+            <column name="UPDATED_DATE_TIME"
+                    valueComputed="SUBSTRING(DATE_FORMAT(now(3), &quot;%Y-%m-%dT%T.%f&quot;),1,23)"/>
+        </insert>
+        <modifySql dbms="postgresql">
+            <replace replace="SUBSTRING(DATE_FORMAT(now(3), &quot;%Y-%m-%dT%T.%f&quot;),1,23)" with="NOW()::timestamp"/>
+        </modifySql>
+        <modifySql dbms="oracle">
+            <replace replace="SUBSTRING(DATE_FORMAT(now(3), &quot;%Y-%m-%dT%T.%f&quot;),1,23)"
+                     with="TO_TIMESTAMP(SYSDATE)"/>
+        </modifySql>
+    </changeSet>
+    <changeSet author="mujahid.thoufeek" id="data.default.2.26">
+        <preConditions onFail="MARK_RAN">
+            <sqlCheck expectedResult="0">select count(*)
+                                         from "PROPERTY_ATTRIBUTES"
+                                         where "PROPERTY_ID" in
+                                               (select "ID" from "FILE_PROPERTY" where "NAME" = 'Verification Status')
+                                           and "NAME" = 'Not Verified'
+            </sqlCheck>
+        </preConditions>
+        <insert tableName="PROPERTY_ATTRIBUTES">
+            <column name="PROPERTY_ID"
+                    valueComputed="14"/>
+            <column name="NAME" value="Not Verified"/>
+            <column name="IS_DELETABLE" valueBoolean="false"/>
+            <column name="HOSPITAL_ID" value="0"/>
+            <column name="TENANT_ID" value="0"/>
+            <column name="CREATED_USER" value="0"/>
+            <column name="CREATED_DATE_TIME"
+                    valueComputed="SUBSTRING(DATE_FORMAT(now(3), &quot;%Y-%m-%dT%T.%f&quot;),1,23)"/>
+            <column name="UPDATED_DATE_TIME"
+                    valueComputed="SUBSTRING(DATE_FORMAT(now(3), &quot;%Y-%m-%dT%T.%f&quot;),1,23)"/>
+        </insert>
+        <modifySql dbms="postgresql">
+            <replace replace="SUBSTRING(DATE_FORMAT(now(3), &quot;%Y-%m-%dT%T.%f&quot;),1,23)" with="NOW()::timestamp"/>
+        </modifySql>
+        <modifySql dbms="oracle">
+            <replace replace="SUBSTRING(DATE_FORMAT(now(3), &quot;%Y-%m-%dT%T.%f&quot;),1,23)"
+                     with="TO_TIMESTAMP(SYSDATE)"/>
+        </modifySql>
+    </changeSet>
+    <changeSet author="mujahid.thoufeek" id="data.default.2.27">
+        <preConditions onFail="MARK_RAN">
+            <sqlCheck expectedResult="0">select count(*)
+                                         from "PROPERTY_ATTRIBUTES"
+                                         where "PROPERTY_ID" in
+                                               (select "ID" from "FILE_PROPERTY" where "NAME" = 'Verification Status')
+                                           and "NAME" = 'Error'
+            </sqlCheck>
+        </preConditions>
+        <insert tableName="PROPERTY_ATTRIBUTES">
+            <column name="PROPERTY_ID"
+                    valueComputed="14"/>
+            <column name="NAME" value="Error"/>
+            <column name="IS_DELETABLE" valueBoolean="false"/>
+            <column name="HOSPITAL_ID" value="0"/>
+            <column name="TENANT_ID" value="0"/>
+            <column name="CREATED_USER" value="0"/>
+            <column name="CREATED_DATE_TIME"
+                    valueComputed="SUBSTRING(DATE_FORMAT(now(3), &quot;%Y-%m-%dT%T.%f&quot;),1,23)"/>
+            <column name="UPDATED_DATE_TIME"
+                    valueComputed="SUBSTRING(DATE_FORMAT(now(3), &quot;%Y-%m-%dT%T.%f&quot;),1,23)"/>
+        </insert>
+        <modifySql dbms="postgresql">
+            <replace replace="SUBSTRING(DATE_FORMAT(now(3), &quot;%Y-%m-%dT%T.%f&quot;),1,23)" with="NOW()::timestamp"/>
+        </modifySql>
+        <modifySql dbms="oracle">
+            <replace replace="SUBSTRING(DATE_FORMAT(now(3), &quot;%Y-%m-%dT%T.%f&quot;),1,23)"
+                     with="TO_TIMESTAMP(SYSDATE)"/>
+        </modifySql>
+    </changeSet>
+
+    <changeSet author="mujahid.thoufeek" id="data.default.2.28" runAlways="true">
+        <preConditions onFail="MARK_RAN">
+            <sqlCheck expectedResult="0">select count(*)
+                                         from "UPLOAD_SETTINGS"
+                                         where "TENANT_ID" = '0'
+                                           and "HOSPITAL_ID" = '0'
+            </sqlCheck>
+        </preConditions>
+        <insert tableName="UPLOAD_SETTINGS">
+            <column name="MAX_FILE_SIZE" value="100"/>
+            <column name="FILE_SIZE_UNIT" value="2"/>
+            <column name="IS_SIZE_LIMITED" valueBoolean="false"/>
+            <column name="FILE_TYPES" value="[&quot;any&quot;]"/>
+            <column name="FILE_NAMING_FORMAT"
+                    value="[&quot;Hospital&quot;,&quot;Category&quot;,&quot;Type&quot;,&quot;Date&amp;Time&quot;,&quot;Sequence Number&quot;]"/>
+            <column name="HOSPITAL_ID" value="0"/>
+            <column name="TENANT_ID" value="0"/>
+            <column name="CREATED_USER" value="0"/>
+            <column name="CREATED_DATE_TIME"
+                    valueComputed="SUBSTRING(DATE_FORMAT(now(3), &quot;%Y-%m-%dT%T.%f&quot;),1,23)"/>
+            <column name="UPDATED_DATE_TIME"
+                    valueComputed="SUBSTRING(DATE_FORMAT(now(3), &quot;%Y-%m-%dT%T.%f&quot;),1,23)"/>
+        </insert>
+        <modifySql dbms="postgresql">
+            <replace replace="SUBSTRING(DATE_FORMAT(now(3), &quot;%Y-%m-%dT%T.%f&quot;),1,23)" with="NOW()::timestamp"/>
+        </modifySql>
+        <modifySql dbms="oracle">
+            <replace replace="SUBSTRING(DATE_FORMAT(now(3), &quot;%Y-%m-%dT%T.%f&quot;),1,23)"
+                     with="TO_TIMESTAMP(SYSDATE)"/>
+        </modifySql>
+    </changeSet>
+
+    <changeSet author="omal.cooray" id="data.default.2.29">
+        <preConditions onFail="MARK_RAN">
+            <sqlCheck expectedResult="0">select count(*)
+                                         from "FILE_PROPERTY"
+                                         where "NAME" = 'Reference No'</sqlCheck>
+        </preConditions>
+        <insert tableName="FILE_PROPERTY">
+            <column name="NAME" value="Reference No"/>
+            <column name="IS_DELETABLE" valueBoolean="false"/>
+            <column name="IS_MANDATORY" valueBoolean="false"/>
+            <column name="IS_FREE_TEXT" valueBoolean="true"/>
+            <column name="IS_ADDABLE" valueBoolean="false"/>
+            <column name="PROPERTY_TYPE" valueNumeric="2"/>
+            <column name="TENANT_ID" value="0"/>
+            <column name="HOSPITAL_ID" value="0"/>
+            <column name="HIERARCHY_AVAILABLE" valueBoolean="false"/>
+            <column name="CREATED_DATE_TIME"
+                    valueComputed="SUBSTRING(DATE_FORMAT(now(3), &quot;%Y-%m-%dT%T.%f&quot;),1,23)"/>
+            <column name="UPDATED_DATE_TIME"
+                    valueComputed="SUBSTRING(DATE_FORMAT(now(3), &quot;%Y-%m-%dT%T.%f&quot;),1,23)"/>
+            <column name="CREATED_USER" value="0"/>
+            <column name="STATUS" valueBoolean="true"/>
+        </insert>
+        <modifySql dbms="postgresql">
+            <replace replace="SUBSTRING(DATE_FORMAT(now(3), &quot;%Y-%m-%dT%T.%f&quot;),1,23)" with="NOW()::timestamp"/>
+        </modifySql>
+        <modifySql dbms="oracle">
+            <replace replace="SUBSTRING(DATE_FORMAT(now(3), &quot;%Y-%m-%dT%T.%f&quot;),1,23)"
+                     with="TO_TIMESTAMP(SYSDATE)"/>
+        </modifySql>
+    </changeSet>
+    <changeSet author="omal.cooray" id="data.default.2.3.0">
+        <preConditions onFail="MARK_RAN">
+            <sqlCheck expectedResult="0">select count(*)
+                                         from "FILE_PROPERTY"
+                                         where "NAME" = 'Referral Doctor'</sqlCheck>
+        </preConditions>
+        <insert tableName="FILE_PROPERTY">
+            <column name="NAME" value="Referral Doctor"/>
+            <column name="IS_DELETABLE" valueBoolean="false"/>
+            <column name="IS_MANDATORY" valueBoolean="false"/>
+            <column name="IS_FREE_TEXT" valueBoolean="true"/>
+            <column name="IS_ADDABLE" valueBoolean="false"/>
+            <column name="PROPERTY_TYPE" valueNumeric="2"/>
+            <column name="TENANT_ID" value="0"/>
+            <column name="HOSPITAL_ID" value="0"/>
+            <column name="HIERARCHY_AVAILABLE" valueBoolean="false"/>
+            <column name="CREATED_DATE_TIME"
+                    valueComputed="SUBSTRING(DATE_FORMAT(now(3), &quot;%Y-%m-%dT%T.%f&quot;),1,23)"/>
+            <column name="UPDATED_DATE_TIME"
+                    valueComputed="SUBSTRING(DATE_FORMAT(now(3), &quot;%Y-%m-%dT%T.%f&quot;),1,23)"/>
+            <column name="CREATED_USER" value="0"/>
+            <column name="STATUS" valueBoolean="true"/>
+        </insert>
+        <modifySql dbms="postgresql">
+            <replace replace="SUBSTRING(DATE_FORMAT(now(3), &quot;%Y-%m-%dT%T.%f&quot;),1,23)" with="NOW()::timestamp"/>
+        </modifySql>
+        <modifySql dbms="oracle">
+            <replace replace="SUBSTRING(DATE_FORMAT(now(3), &quot;%Y-%m-%dT%T.%f&quot;),1,23)"
+                     with="TO_TIMESTAMP(SYSDATE)"/>
+        </modifySql>
+    </changeSet>
+    <changeSet author="omal.cooray" id="data.default.2.3.1">
+        <preConditions onFail="MARK_RAN">
+            <sqlCheck expectedResult="0">select count(*)
+                                         from "FILE_PROPERTY"
+                                         where "NAME" = 'Referral Facility (from)'</sqlCheck>
+        </preConditions>
+        <insert tableName="FILE_PROPERTY">
+            <column name="NAME" value="Referral Facility (from)"/>
+            <column name="IS_DELETABLE" valueBoolean="false"/>
+            <column name="IS_MANDATORY" valueBoolean="false"/>
+            <column name="IS_FREE_TEXT" valueBoolean="true"/>
+            <column name="IS_ADDABLE" valueBoolean="false"/>
+            <column name="PROPERTY_TYPE" valueNumeric="2"/>
+            <column name="TENANT_ID" value="0"/>
+            <column name="HOSPITAL_ID" value="0"/>
+            <column name="HIERARCHY_AVAILABLE" valueBoolean="false"/>
+            <column name="CREATED_DATE_TIME"
+                    valueComputed="SUBSTRING(DATE_FORMAT(now(3), &quot;%Y-%m-%dT%T.%f&quot;),1,23)"/>
+            <column name="UPDATED_DATE_TIME"
+                    valueComputed="SUBSTRING(DATE_FORMAT(now(3), &quot;%Y-%m-%dT%T.%f&quot;),1,23)"/>
+            <column name="CREATED_USER" value="0"/>
+            <column name="STATUS" valueBoolean="true"/>
+        </insert>
+        <modifySql dbms="postgresql">
+            <replace replace="SUBSTRING(DATE_FORMAT(now(3), &quot;%Y-%m-%dT%T.%f&quot;),1,23)" with="NOW()::timestamp"/>
+        </modifySql>
+        <modifySql dbms="oracle">
+            <replace replace="SUBSTRING(DATE_FORMAT(now(3), &quot;%Y-%m-%dT%T.%f&quot;),1,23)"
+                     with="TO_TIMESTAMP(SYSDATE)"/>
+        </modifySql>
+    </changeSet>
+    <changeSet author="omal.cooray" id="data.default.2.3.2">
+        <preConditions onFail="MARK_RAN">
+            <sqlCheck expectedResult="0">select count(*)
+                                         from "FILE_PROPERTY"
+                                         where "NAME" = 'Remarks'</sqlCheck>
+        </preConditions>
+        <insert tableName="FILE_PROPERTY">
+            <column name="NAME" value="Remarks"/>
+            <column name="IS_DELETABLE" valueBoolean="false"/>
+            <column name="IS_MANDATORY" valueBoolean="false"/>
+            <column name="IS_FREE_TEXT" valueBoolean="true"/>
+            <column name="IS_ADDABLE" valueBoolean="false"/>
+            <column name="PROPERTY_TYPE" valueNumeric="2"/>
+            <column name="TENANT_ID" value="0"/>
+            <column name="HOSPITAL_ID" value="0"/>
+            <column name="HIERARCHY_AVAILABLE" valueBoolean="false"/>
+            <column name="CREATED_DATE_TIME"
+                    valueComputed="SUBSTRING(DATE_FORMAT(now(3), &quot;%Y-%m-%dT%T.%f&quot;),1,23)"/>
+            <column name="UPDATED_DATE_TIME"
+                    valueComputed="SUBSTRING(DATE_FORMAT(now(3), &quot;%Y-%m-%dT%T.%f&quot;),1,23)"/>
+            <column name="CREATED_USER" value="0"/>
+            <column name="STATUS" valueBoolean="true"/>
+        </insert>
+        <modifySql dbms="postgresql">
+            <replace replace="SUBSTRING(DATE_FORMAT(now(3), &quot;%Y-%m-%dT%T.%f&quot;),1,23)" with="NOW()::timestamp"/>
+        </modifySql>
+        <modifySql dbms="oracle">
+            <replace replace="SUBSTRING(DATE_FORMAT(now(3), &quot;%Y-%m-%dT%T.%f&quot;),1,23)"
+                     with="TO_TIMESTAMP(SYSDATE)"/>
+        </modifySql>
+    </changeSet>
+    <changeSet author="omal.cooray" id="data.default.2.3.3">
+        <preConditions onFail="MARK_RAN">
+            <sqlCheck expectedResult="0">select count(*)
+                                         from "FILE_PROPERTY"
+                                         where "NAME" = 'Official Letter No'</sqlCheck>
+        </preConditions>
+        <insert tableName="FILE_PROPERTY">
+            <column name="NAME" value="Official Letter No"/>
+            <column name="IS_DELETABLE" valueBoolean="false"/>
+            <column name="IS_MANDATORY" valueBoolean="false"/>
+            <column name="IS_FREE_TEXT" valueBoolean="true"/>
+            <column name="IS_ADDABLE" valueBoolean="false"/>
+            <column name="PROPERTY_TYPE" valueNumeric="2"/>
+            <column name="TENANT_ID" value="0"/>
+            <column name="HOSPITAL_ID" value="0"/>
+            <column name="HIERARCHY_AVAILABLE" valueBoolean="false"/>
+            <column name="CREATED_DATE_TIME"
+                    valueComputed="SUBSTRING(DATE_FORMAT(now(3), &quot;%Y-%m-%dT%T.%f&quot;),1,23)"/>
+            <column name="UPDATED_DATE_TIME"
+                    valueComputed="SUBSTRING(DATE_FORMAT(now(3), &quot;%Y-%m-%dT%T.%f&quot;),1,23)"/>
+            <column name="CREATED_USER" value="0"/>
+            <column name="STATUS" valueBoolean="true"/>
+        </insert>
+        <modifySql dbms="postgresql">
+            <replace replace="SUBSTRING(DATE_FORMAT(now(3), &quot;%Y-%m-%dT%T.%f&quot;),1,23)" with="NOW()::timestamp"/>
+        </modifySql>
+        <modifySql dbms="oracle">
+            <replace replace="SUBSTRING(DATE_FORMAT(now(3), &quot;%Y-%m-%dT%T.%f&quot;),1,23)"
+                     with="TO_TIMESTAMP(SYSDATE)"/>
+        </modifySql>
+    </changeSet>
+    <changeSet author="omal.cooray" id="data.default.2.3.4">
+        <preConditions onFail="MARK_RAN">
+            <sqlCheck expectedResult="0">select count(*)
+                                         from "FILE_PROPERTY"
+                                         where "NAME" = 'Precaution'</sqlCheck>
+        </preConditions>
+        <insert tableName="FILE_PROPERTY">
+            <column name="NAME" value="Precaution"/>
+            <column name="IS_DELETABLE" valueBoolean="false"/>
+            <column name="IS_MANDATORY" valueBoolean="false"/>
+            <column name="IS_FREE_TEXT" valueBoolean="true"/>
+            <column name="IS_ADDABLE" valueBoolean="false"/>
+            <column name="PROPERTY_TYPE" valueNumeric="2"/>
+            <column name="TENANT_ID" value="0"/>
+            <column name="HOSPITAL_ID" value="0"/>
+            <column name="HIERARCHY_AVAILABLE" valueBoolean="false"/>
+            <column name="CREATED_DATE_TIME"
+                    valueComputed="SUBSTRING(DATE_FORMAT(now(3), &quot;%Y-%m-%dT%T.%f&quot;),1,23)"/>
+            <column name="UPDATED_DATE_TIME"
+                    valueComputed="SUBSTRING(DATE_FORMAT(now(3), &quot;%Y-%m-%dT%T.%f&quot;),1,23)"/>
+            <column name="CREATED_USER" value="0"/>
+            <column name="STATUS" valueBoolean="true"/>
+        </insert>
+        <modifySql dbms="postgresql">
+            <replace replace="SUBSTRING(DATE_FORMAT(now(3), &quot;%Y-%m-%dT%T.%f&quot;),1,23)" with="NOW()::timestamp"/>
+        </modifySql>
+        <modifySql dbms="oracle">
+            <replace replace="SUBSTRING(DATE_FORMAT(now(3), &quot;%Y-%m-%dT%T.%f&quot;),1,23)"
+                     with="TO_TIMESTAMP(SYSDATE)"/>
+        </modifySql>
+    </changeSet>
+    <changeSet author="omal.cooray" id="data.default.2.3.5">
+        <preConditions onFail="MARK_RAN">
+            <sqlCheck expectedResult="0">select count(*)
+                                         from "FILE_PROPERTY"
+                                         where "NAME" = 'Protocol'</sqlCheck>
+        </preConditions>
+        <insert tableName="FILE_PROPERTY">
+            <column name="NAME" value="Protocol"/>
+            <column name="IS_DELETABLE" valueBoolean="false"/>
+            <column name="IS_MANDATORY" valueBoolean="false"/>
+            <column name="IS_FREE_TEXT" valueBoolean="true"/>
+            <column name="IS_ADDABLE" valueBoolean="false"/>
+            <column name="PROPERTY_TYPE" valueNumeric="2"/>
+            <column name="TENANT_ID" value="0"/>
+            <column name="HOSPITAL_ID" value="0"/>
+            <column name="HIERARCHY_AVAILABLE" valueBoolean="false"/>
+            <column name="CREATED_DATE_TIME"
+                    valueComputed="SUBSTRING(DATE_FORMAT(now(3), &quot;%Y-%m-%dT%T.%f&quot;),1,23)"/>
+            <column name="UPDATED_DATE_TIME"
+                    valueComputed="SUBSTRING(DATE_FORMAT(now(3), &quot;%Y-%m-%dT%T.%f&quot;),1,23)"/>
+            <column name="CREATED_USER" value="0"/>
+            <column name="STATUS" valueBoolean="true"/>
+        </insert>
+        <modifySql dbms="postgresql">
+            <replace replace="SUBSTRING(DATE_FORMAT(now(3), &quot;%Y-%m-%dT%T.%f&quot;),1,23)" with="NOW()::timestamp"/>
+        </modifySql>
+        <modifySql dbms="oracle">
+            <replace replace="SUBSTRING(DATE_FORMAT(now(3), &quot;%Y-%m-%dT%T.%f&quot;),1,23)"
+                     with="TO_TIMESTAMP(SYSDATE)"/>
+        </modifySql>
+    </changeSet>
+    <changeSet author="omal.cooray" id="data.default.2.3.6">
+        <preConditions onFail="MARK_RAN">
+            <sqlCheck expectedResult="0">select count(*)
+                                         from "FILE_PROPERTY"
+                                         where "NAME" = 'Referrals'</sqlCheck>
+        </preConditions>
+        <insert tableName="FILE_PROPERTY">
+            <column name="NAME" value="Referrals"/>
+            <column name="IS_DELETABLE" valueBoolean="false"/>
+            <column name="IS_MANDATORY" valueBoolean="false"/>
+            <column name="IS_FREE_TEXT" valueBoolean="true"/>
+            <column name="IS_ADDABLE" valueBoolean="false"/>
+            <column name="PROPERTY_TYPE" valueNumeric="2"/>
+            <column name="TENANT_ID" value="0"/>
+            <column name="HOSPITAL_ID" value="0"/>
+            <column name="HIERARCHY_AVAILABLE" valueBoolean="false"/>
+            <column name="CREATED_DATE_TIME"
+                    valueComputed="SUBSTRING(DATE_FORMAT(now(3), &quot;%Y-%m-%dT%T.%f&quot;),1,23)"/>
+            <column name="UPDATED_DATE_TIME"
+                    valueComputed="SUBSTRING(DATE_FORMAT(now(3), &quot;%Y-%m-%dT%T.%f&quot;),1,23)"/>
+            <column name="CREATED_USER" value="0"/>
+            <column name="STATUS" valueBoolean="true"/>
+        </insert>
+        <modifySql dbms="postgresql">
+            <replace replace="SUBSTRING(DATE_FORMAT(now(3), &quot;%Y-%m-%dT%T.%f&quot;),1,23)" with="NOW()::timestamp"/>
+        </modifySql>
+        <modifySql dbms="oracle">
+            <replace replace="SUBSTRING(DATE_FORMAT(now(3), &quot;%Y-%m-%dT%T.%f&quot;),1,23)"
+                     with="TO_TIMESTAMP(SYSDATE)"/>
+        </modifySql>
+    </changeSet>
+    <changeSet author="omal.cooray" id="data.default.2.3.7">
+        <preConditions onFail="MARK_RAN">
+            <sqlCheck expectedResult="0">select count(*)
+                                         from "FILE_PROPERTY"
+                                         where "NAME" = 'Blood Unit ID'</sqlCheck>
+        </preConditions>
+        <insert tableName="FILE_PROPERTY">
+            <column name="NAME" value="Blood Unit ID"/>
+            <column name="IS_DELETABLE" valueBoolean="false"/>
+            <column name="IS_MANDATORY" valueBoolean="false"/>
+            <column name="IS_FREE_TEXT" valueBoolean="true"/>
+            <column name="IS_ADDABLE" valueBoolean="false"/>
+            <column name="PROPERTY_TYPE" valueNumeric="2"/>
+            <column name="TENANT_ID" value="0"/>
+            <column name="HOSPITAL_ID" value="0"/>
+            <column name="HIERARCHY_AVAILABLE" valueBoolean="false"/>
+            <column name="CREATED_DATE_TIME"
+                    valueComputed="SUBSTRING(DATE_FORMAT(now(3), &quot;%Y-%m-%dT%T.%f&quot;),1,23)"/>
+            <column name="UPDATED_DATE_TIME"
+                    valueComputed="SUBSTRING(DATE_FORMAT(now(3), &quot;%Y-%m-%dT%T.%f&quot;),1,23)"/>
+            <column name="CREATED_USER" value="0"/>
+            <column name="STATUS" valueBoolean="true"/>
+        </insert>
+        <modifySql dbms="postgresql">
+            <replace replace="SUBSTRING(DATE_FORMAT(now(3), &quot;%Y-%m-%dT%T.%f&quot;),1,23)" with="NOW()::timestamp"/>
+        </modifySql>
+        <modifySql dbms="oracle">
+            <replace replace="SUBSTRING(DATE_FORMAT(now(3), &quot;%Y-%m-%dT%T.%f&quot;),1,23)"
+                     with="TO_TIMESTAMP(SYSDATE)"/>
+        </modifySql>
+    </changeSet>
+    <changeSet author="harsh.madusanka" id="data.default.2.3.8">
+        <preConditions onFail="MARK_RAN">
+            <sqlCheck expectedResult="0">select count(*)
+                                         from "FILE_PROPERTY"
+                                         where "NAME" = 'Code Blue Report ID'</sqlCheck>
+        </preConditions>
+        <insert tableName="FILE_PROPERTY">
+            <column name="NAME" value="Code Blue Report ID"/>
+            <column name="IS_DELETABLE" valueBoolean="false"/>
+            <column name="IS_MANDATORY" valueBoolean="false"/>
+            <column name="IS_FREE_TEXT" valueBoolean="true"/>
+            <column name="IS_ADDABLE" valueBoolean="false"/>
+            <column name="PROPERTY_TYPE" valueNumeric="2"/>
+            <column name="TENANT_ID" value="0"/>
+            <column name="HOSPITAL_ID" value="0"/>
+            <column name="HIERARCHY_AVAILABLE" valueBoolean="false"/>
+            <column name="CREATED_DATE_TIME"
+                    valueComputed="SUBSTRING(DATE_FORMAT(now(3), &quot;%Y-%m-%dT%T.%f&quot;),1,23)"/>
+            <column name="UPDATED_DATE_TIME"
+                    valueComputed="SUBSTRING(DATE_FORMAT(now(3), &quot;%Y-%m-%dT%T.%f&quot;),1,23)"/>
+            <column name="CREATED_USER" value="0"/>
+            <column name="STATUS" valueBoolean="true"/>
+        </insert>
+        <modifySql dbms="postgresql">
+            <replace replace="SUBSTRING(DATE_FORMAT(now(3), &quot;%Y-%m-%dT%T.%f&quot;),1,23)" with="NOW()::timestamp"/>
+        </modifySql>
+        <modifySql dbms="oracle">
+            <replace replace="SUBSTRING(DATE_FORMAT(now(3), &quot;%Y-%m-%dT%T.%f&quot;),1,23)"
+                     with="TO_TIMESTAMP(SYSDATE)"/>
+        </modifySql>
+    </changeSet>
+    <changeSet author="harsha.madusanka" id="data.default.2.3.9">
+        <preConditions onFail="MARK_RAN">
+            <sqlCheck expectedResult="0">select count(*)
+                                         from "FILE_PROPERTY"
+                                         where "NAME" = 'Cardiology Order No'</sqlCheck>
+        </preConditions>
+        <insert tableName="FILE_PROPERTY">
+            <column name="NAME" value="Cardiology Order No"/>
+            <column name="IS_DELETABLE" valueBoolean="false"/>
+            <column name="IS_MANDATORY" valueBoolean="false"/>
+            <column name="IS_FREE_TEXT" valueBoolean="true"/>
+            <column name="IS_ADDABLE" valueBoolean="false"/>
+            <column name="PROPERTY_TYPE" valueNumeric="2"/>
+            <column name="TENANT_ID" value="0"/>
+            <column name="HOSPITAL_ID" value="0"/>
+            <column name="HIERARCHY_AVAILABLE" valueBoolean="false"/>
+            <column name="CREATED_DATE_TIME"
+                    valueComputed="SUBSTRING(DATE_FORMAT(now(3), &quot;%Y-%m-%dT%T.%f&quot;),1,23)"/>
+            <column name="UPDATED_DATE_TIME"
+                    valueComputed="SUBSTRING(DATE_FORMAT(now(3), &quot;%Y-%m-%dT%T.%f&quot;),1,23)"/>
+            <column name="CREATED_USER" value="0"/>
+            <column name="STATUS" valueBoolean="true"/>
+        </insert>
+        <modifySql dbms="postgresql">
+            <replace replace="SUBSTRING(DATE_FORMAT(now(3), &quot;%Y-%m-%dT%T.%f&quot;),1,23)" with="NOW()::timestamp"/>
+        </modifySql>
+        <modifySql dbms="oracle">
+            <replace replace="SUBSTRING(DATE_FORMAT(now(3), &quot;%Y-%m-%dT%T.%f&quot;),1,23)"
+                     with="TO_TIMESTAMP(SYSDATE)"/>
+        </modifySql>
+    </changeSet>
+    <changeSet author="harsha.madusanka" id="data.default.2.3.10">
+        <preConditions onFail="MARK_RAN">
+            <sqlCheck expectedResult="0">select count(*)
+                                         from "FILE_PROPERTY"
+                                         where "NAME" = 'Medication Error Form ID'</sqlCheck>
+        </preConditions>
+        <insert tableName="FILE_PROPERTY">
+            <column name="NAME" value="Medication Error Form ID"/>
+            <column name="IS_DELETABLE" valueBoolean="false"/>
+            <column name="IS_MANDATORY" valueBoolean="false"/>
+            <column name="IS_FREE_TEXT" valueBoolean="true"/>
+            <column name="IS_ADDABLE" valueBoolean="false"/>
+            <column name="PROPERTY_TYPE" valueNumeric="2"/>
+            <column name="TENANT_ID" value="0"/>
+            <column name="HOSPITAL_ID" value="0"/>
+            <column name="HIERARCHY_AVAILABLE" valueBoolean="false"/>
+            <column name="CREATED_DATE_TIME"
+                    valueComputed="SUBSTRING(DATE_FORMAT(now(3), &quot;%Y-%m-%dT%T.%f&quot;),1,23)"/>
+            <column name="UPDATED_DATE_TIME"
+                    valueComputed="SUBSTRING(DATE_FORMAT(now(3), &quot;%Y-%m-%dT%T.%f&quot;),1,23)"/>
+            <column name="CREATED_USER" value="0"/>
+            <column name="STATUS" valueBoolean="true"/>
+        </insert>
+        <modifySql dbms="postgresql">
+            <replace replace="SUBSTRING(DATE_FORMAT(now(3), &quot;%Y-%m-%dT%T.%f&quot;),1,23)" with="NOW()::timestamp"/>
+        </modifySql>
+        <modifySql dbms="oracle">
+            <replace replace="SUBSTRING(DATE_FORMAT(now(3), &quot;%Y-%m-%dT%T.%f&quot;),1,23)"
+                     with="TO_TIMESTAMP(SYSDATE)"/>
+        </modifySql>
+    </changeSet>
+    <changeSet author="harsha.madusanka" id="data.default.2.3.11">
+        <preConditions onFail="MARK_RAN">
+            <sqlCheck expectedResult="0">select count(*)
+                                         from "FILE_PROPERTY"
+                                         where "NAME" = 'Cardiology Order ID'</sqlCheck>
+        </preConditions>
+        <insert tableName="FILE_PROPERTY">
+            <column name="NAME" value="Cardiology Order ID"/>
+            <column name="IS_DELETABLE" valueBoolean="false"/>
+            <column name="IS_MANDATORY" valueBoolean="false"/>
+            <column name="IS_FREE_TEXT" valueBoolean="true"/>
+            <column name="IS_ADDABLE" valueBoolean="false"/>
+            <column name="PROPERTY_TYPE" valueNumeric="2"/>
+            <column name="TENANT_ID" value="0"/>
+            <column name="HOSPITAL_ID" value="0"/>
+            <column name="HIERARCHY_AVAILABLE" valueBoolean="false"/>
+            <column name="CREATED_DATE_TIME"
+                    valueComputed="SUBSTRING(DATE_FORMAT(now(3), &quot;%Y-%m-%dT%T.%f&quot;),1,23)"/>
+            <column name="UPDATED_DATE_TIME"
+                    valueComputed="SUBSTRING(DATE_FORMAT(now(3), &quot;%Y-%m-%dT%T.%f&quot;),1,23)"/>
+            <column name="CREATED_USER" value="0"/>
+            <column name="STATUS" valueBoolean="true"/>
+        </insert>
+        <modifySql dbms="postgresql">
+            <replace replace="SUBSTRING(DATE_FORMAT(now(3), &quot;%Y-%m-%dT%T.%f&quot;),1,23)" with="NOW()::timestamp"/>
+        </modifySql>
+        <modifySql dbms="oracle">
+            <replace replace="SUBSTRING(DATE_FORMAT(now(3), &quot;%Y-%m-%dT%T.%f&quot;),1,23)"
+                     with="TO_TIMESTAMP(SYSDATE)"/>
+        </modifySql>
+    </changeSet>
+    <changeSet author="harsha.madusanka" id="data.default.2.3.12">
+        <preConditions onFail="MARK_RAN">
+            <sqlCheck expectedResult="0">select count(*)
+                                         from "FILE_PROPERTY"
+                                         where "NAME" = 'Radiology Order ID'</sqlCheck>
+        </preConditions>
+        <insert tableName="FILE_PROPERTY">
+            <column name="NAME" value="Radiology Order ID"/>
+            <column name="IS_DELETABLE" valueBoolean="false"/>
+            <column name="IS_MANDATORY" valueBoolean="false"/>
+            <column name="IS_FREE_TEXT" valueBoolean="true"/>
+            <column name="IS_ADDABLE" valueBoolean="false"/>
+            <column name="PROPERTY_TYPE" valueNumeric="2"/>
+            <column name="TENANT_ID" value="0"/>
+            <column name="HOSPITAL_ID" value="0"/>
+            <column name="HIERARCHY_AVAILABLE" valueBoolean="false"/>
+            <column name="CREATED_DATE_TIME"
+                    valueComputed="SUBSTRING(DATE_FORMAT(now(3), &quot;%Y-%m-%dT%T.%f&quot;),1,23)"/>
+            <column name="UPDATED_DATE_TIME"
+                    valueComputed="SUBSTRING(DATE_FORMAT(now(3), &quot;%Y-%m-%dT%T.%f&quot;),1,23)"/>
+            <column name="CREATED_USER" value="0"/>
+            <column name="STATUS" valueBoolean="true"/>
+        </insert>
+        <modifySql dbms="postgresql">
+            <replace replace="SUBSTRING(DATE_FORMAT(now(3), &quot;%Y-%m-%dT%T.%f&quot;),1,23)" with="NOW()::timestamp"/>
+        </modifySql>
+        <modifySql dbms="oracle">
+            <replace replace="SUBSTRING(DATE_FORMAT(now(3), &quot;%Y-%m-%dT%T.%f&quot;),1,23)"
+                     with="TO_TIMESTAMP(SYSDATE)"/>
+        </modifySql>
+    </changeSet>
+    <changeSet author="harsha.madusanka" id="data.default.2.3.13">
+        <preConditions onFail="MARK_RAN">
+            <sqlCheck expectedResult="0">select count(*)
+                                         from "FILE_PROPERTY"
+                                         where "NAME" = 'Work List ID'</sqlCheck>
+        </preConditions>
+        <insert tableName="FILE_PROPERTY">
+            <column name="NAME" value="Work List ID"/>
+            <column name="IS_DELETABLE" valueBoolean="false"/>
+            <column name="IS_MANDATORY" valueBoolean="false"/>
+            <column name="IS_FREE_TEXT" valueBoolean="true"/>
+            <column name="IS_ADDABLE" valueBoolean="false"/>
+            <column name="PROPERTY_TYPE" valueNumeric="2"/>
+            <column name="TENANT_ID" value="0"/>
+            <column name="HOSPITAL_ID" value="0"/>
+            <column name="HIERARCHY_AVAILABLE" valueBoolean="false"/>
+            <column name="CREATED_DATE_TIME"
+                    valueComputed="SUBSTRING(DATE_FORMAT(now(3), &quot;%Y-%m-%dT%T.%f&quot;),1,23)"/>
+            <column name="UPDATED_DATE_TIME"
+                    valueComputed="SUBSTRING(DATE_FORMAT(now(3), &quot;%Y-%m-%dT%T.%f&quot;),1,23)"/>
+            <column name="CREATED_USER" value="0"/>
+            <column name="STATUS" valueBoolean="true"/>
+        </insert>
+        <modifySql dbms="postgresql">
+            <replace replace="SUBSTRING(DATE_FORMAT(now(3), &quot;%Y-%m-%dT%T.%f&quot;),1,23)" with="NOW()::timestamp"/>
+        </modifySql>
+        <modifySql dbms="oracle">
+            <replace replace="SUBSTRING(DATE_FORMAT(now(3), &quot;%Y-%m-%dT%T.%f&quot;),1,23)"
+                     with="TO_TIMESTAMP(SYSDATE)"/>
+        </modifySql>
+    </changeSet>
+    <changeSet author="harsha.madusanka" id="data.default.2.3.14">
+        <preConditions onFail="MARK_RAN">
+            <sqlCheck expectedResult="0">select count(*)
+                                         from "FILE_PROPERTY"
+                                         where "NAME" = 'LDR Baby Images ID'</sqlCheck>
+        </preConditions>
+        <insert tableName="FILE_PROPERTY">
+            <column name="NAME" value="LDR Baby Images ID"/>
+            <column name="IS_DELETABLE" valueBoolean="false"/>
+            <column name="IS_MANDATORY" valueBoolean="false"/>
+            <column name="IS_FREE_TEXT" valueBoolean="true"/>
+            <column name="IS_ADDABLE" valueBoolean="false"/>
+            <column name="PROPERTY_TYPE" valueNumeric="2"/>
+            <column name="TENANT_ID" value="0"/>
+            <column name="HOSPITAL_ID" value="0"/>
+            <column name="HIERARCHY_AVAILABLE" valueBoolean="false"/>
+            <column name="CREATED_DATE_TIME"
+                    valueComputed="SUBSTRING(DATE_FORMAT(now(3), &quot;%Y-%m-%dT%T.%f&quot;),1,23)"/>
+            <column name="UPDATED_DATE_TIME"
+                    valueComputed="SUBSTRING(DATE_FORMAT(now(3), &quot;%Y-%m-%dT%T.%f&quot;),1,23)"/>
+            <column name="CREATED_USER" value="0"/>
+            <column name="STATUS" valueBoolean="true"/>
+        </insert>
+        <modifySql dbms="postgresql">
+            <replace replace="SUBSTRING(DATE_FORMAT(now(3), &quot;%Y-%m-%dT%T.%f&quot;),1,23)" with="NOW()::timestamp"/>
+        </modifySql>
+        <modifySql dbms="oracle">
+            <replace replace="SUBSTRING(DATE_FORMAT(now(3), &quot;%Y-%m-%dT%T.%f&quot;),1,23)"
+                     with="TO_TIMESTAMP(SYSDATE)"/>
+        </modifySql>
+    </changeSet>
+
+    <changeSet author="harsha.madusanka" id="data.default.2.3.15">
+        <preConditions onFail="MARK_RAN">
+            <sqlCheck expectedResult="0">select count(*)
+                                         from "FILE_PROPERTY"
+                                         where "NAME" = 'External Corpse ID'</sqlCheck>
+        </preConditions>
+        <insert tableName="FILE_PROPERTY">
+            <column name="NAME" value="External Corpse ID"/>
+            <column name="IS_DELETABLE" valueBoolean="false"/>
+            <column name="IS_MANDATORY" valueBoolean="false"/>
+            <column name="IS_FREE_TEXT" valueBoolean="true"/>
+            <column name="IS_ADDABLE" valueBoolean="false"/>
+            <column name="PROPERTY_TYPE" valueNumeric="2"/>
+            <column name="TENANT_ID" value="0"/>
+            <column name="HOSPITAL_ID" value="0"/>
+            <column name="HIERARCHY_AVAILABLE" valueBoolean="false"/>
+            <column name="CREATED_DATE_TIME"
+                    valueComputed="SUBSTRING(DATE_FORMAT(now(3), &quot;%Y-%m-%dT%T.%f&quot;),1,23)"/>
+            <column name="UPDATED_DATE_TIME"
+                    valueComputed="SUBSTRING(DATE_FORMAT(now(3), &quot;%Y-%m-%dT%T.%f&quot;),1,23)"/>
+            <column name="CREATED_USER" value="0"/>
+            <column name="STATUS" valueBoolean="true"/>
+        </insert>
+        <modifySql dbms="postgresql">
+            <replace replace="SUBSTRING(DATE_FORMAT(now(3), &quot;%Y-%m-%dT%T.%f&quot;),1,23)" with="NOW()::timestamp"/>
+        </modifySql>
+        <modifySql dbms="oracle">
+            <replace replace="SUBSTRING(DATE_FORMAT(now(3), &quot;%Y-%m-%dT%T.%f&quot;),1,23)"
+                     with="TO_TIMESTAMP(SYSDATE)"/>
+        </modifySql>
+    </changeSet>
+
+    <changeSet author="harsha.madusanka" id="data.default.2.3.16">
+        <preConditions onFail="MARK_RAN">
+            <sqlCheck expectedResult="0">select count(*)
+                                         from "FILE_PROPERTY"
+                                         where "NAME" = 'Staff Worklist Procedure ID'</sqlCheck>
+        </preConditions>
+        <insert tableName="FILE_PROPERTY">
+            <column name="NAME" value="Staff Worklist Procedure ID"/>
+            <column name="IS_DELETABLE" valueBoolean="false"/>
+            <column name="IS_MANDATORY" valueBoolean="false"/>
+            <column name="IS_FREE_TEXT" valueBoolean="true"/>
+            <column name="IS_ADDABLE" valueBoolean="false"/>
+            <column name="PROPERTY_TYPE" valueNumeric="2"/>
+            <column name="TENANT_ID" value="0"/>
+            <column name="HOSPITAL_ID" value="0"/>
+            <column name="HIERARCHY_AVAILABLE" valueBoolean="false"/>
+            <column name="CREATED_DATE_TIME"
+                    valueComputed="SUBSTRING(DATE_FORMAT(now(3), &quot;%Y-%m-%dT%T.%f&quot;),1,23)"/>
+            <column name="UPDATED_DATE_TIME"
+                    valueComputed="SUBSTRING(DATE_FORMAT(now(3), &quot;%Y-%m-%dT%T.%f&quot;),1,23)"/>
+            <column name="CREATED_USER" value="0"/>
+            <column name="STATUS" valueBoolean="true"/>
+        </insert>
+        <modifySql dbms="postgresql">
+            <replace replace="SUBSTRING(DATE_FORMAT(now(3), &quot;%Y-%m-%dT%T.%f&quot;),1,23)" with="NOW()::timestamp"/>
+        </modifySql>
+        <modifySql dbms="oracle">
+            <replace replace="SUBSTRING(DATE_FORMAT(now(3), &quot;%Y-%m-%dT%T.%f&quot;),1,23)"
+                     with="TO_TIMESTAMP(SYSDATE)"/>
+        </modifySql>
+    </changeSet>
+    <changeSet author="harsha.madusanka" id="data.default.2.3.17">
+        <preConditions onFail="MARK_RAN">
+            <sqlCheck expectedResult="0">select count(*)
+                                         from "FILE_PROPERTY"
+                                         where "NAME" = 'Lab Order ID'</sqlCheck>
+        </preConditions>
+        <insert tableName="FILE_PROPERTY">
+            <column name="NAME" value="Lab Order ID"/>
+            <column name="IS_DELETABLE" valueBoolean="false"/>
+            <column name="IS_MANDATORY" valueBoolean="false"/>
+            <column name="IS_FREE_TEXT" valueBoolean="true"/>
+            <column name="IS_ADDABLE" valueBoolean="false"/>
+            <column name="PROPERTY_TYPE" valueNumeric="2"/>
+            <column name="TENANT_ID" value="0"/>
+            <column name="HOSPITAL_ID" value="0"/>
+            <column name="HIERARCHY_AVAILABLE" valueBoolean="false"/>
+            <column name="CREATED_DATE_TIME"
+                    valueComputed="SUBSTRING(DATE_FORMAT(now(3), &quot;%Y-%m-%dT%T.%f&quot;),1,23)"/>
+            <column name="UPDATED_DATE_TIME"
+                    valueComputed="SUBSTRING(DATE_FORMAT(now(3), &quot;%Y-%m-%dT%T.%f&quot;),1,23)"/>
+            <column name="CREATED_USER" value="0"/>
+            <column name="STATUS" valueBoolean="true"/>
+        </insert>
+        <modifySql dbms="postgresql">
+            <replace replace="SUBSTRING(DATE_FORMAT(now(3), &quot;%Y-%m-%dT%T.%f&quot;),1,23)" with="NOW()::timestamp"/>
+        </modifySql>
+        <modifySql dbms="oracle">
+            <replace replace="SUBSTRING(DATE_FORMAT(now(3), &quot;%Y-%m-%dT%T.%f&quot;),1,23)"
+                     with="TO_TIMESTAMP(SYSDATE)"/>
+        </modifySql>
+    </changeSet>
+    <changeSet author="harsha.madusanka" id="data.default.2.3.18">
+        <preConditions onFail="MARK_RAN">
+            <sqlCheck expectedResult="0">select count(*)
+                                         from "FILE_PROPERTY"
+                                         where "NAME" = 'MLM Doc ID'</sqlCheck>
+        </preConditions>
+        <insert tableName="FILE_PROPERTY">
+            <column name="NAME" value="MLM Doc ID"/>
+            <column name="IS_DELETABLE" valueBoolean="false"/>
+            <column name="IS_MANDATORY" valueBoolean="false"/>
+            <column name="IS_FREE_TEXT" valueBoolean="true"/>
+            <column name="IS_ADDABLE" valueBoolean="false"/>
+            <column name="PROPERTY_TYPE" valueNumeric="2"/>
+            <column name="TENANT_ID" value="0"/>
+            <column name="HOSPITAL_ID" value="0"/>
+            <column name="HIERARCHY_AVAILABLE" valueBoolean="false"/>
+            <column name="CREATED_DATE_TIME"
+                    valueComputed="SUBSTRING(DATE_FORMAT(now(3), &quot;%Y-%m-%dT%T.%f&quot;),1,23)"/>
+            <column name="UPDATED_DATE_TIME"
+                    valueComputed="SUBSTRING(DATE_FORMAT(now(3), &quot;%Y-%m-%dT%T.%f&quot;),1,23)"/>
+            <column name="CREATED_USER" value="0"/>
+            <column name="STATUS" valueBoolean="true"/>
+        </insert>
+        <modifySql dbms="postgresql">
+            <replace replace="SUBSTRING(DATE_FORMAT(now(3), &quot;%Y-%m-%dT%T.%f&quot;),1,23)" with="NOW()::timestamp"/>
+        </modifySql>
+        <modifySql dbms="oracle">
+            <replace replace="SUBSTRING(DATE_FORMAT(now(3), &quot;%Y-%m-%dT%T.%f&quot;),1,23)"
+                     with="TO_TIMESTAMP(SYSDATE)"/>
+        </modifySql>
+    </changeSet>
+    <changeSet author="harsha.madusanka" id="data.default.2.3.19">
+        <preConditions onFail="MARK_RAN">
+            <sqlCheck expectedResult="0">select count(*)
+                                         from "FILE_PROPERTY"
+                                         where "NAME" = 'Nursing Referral Services ID'</sqlCheck>
+        </preConditions>
+        <insert tableName="FILE_PROPERTY">
+            <column name="NAME" value="Nursing Referral Services ID"/>
+            <column name="IS_DELETABLE" valueBoolean="false"/>
+            <column name="IS_MANDATORY" valueBoolean="false"/>
+            <column name="IS_FREE_TEXT" valueBoolean="true"/>
+            <column name="IS_ADDABLE" valueBoolean="false"/>
+            <column name="PROPERTY_TYPE" valueNumeric="2"/>
+            <column name="TENANT_ID" value="0"/>
+            <column name="HOSPITAL_ID" value="0"/>
+            <column name="HIERARCHY_AVAILABLE" valueBoolean="false"/>
+            <column name="CREATED_DATE_TIME"
+                    valueComputed="SUBSTRING(DATE_FORMAT(now(3), &quot;%Y-%m-%dT%T.%f&quot;),1,23)"/>
+            <column name="UPDATED_DATE_TIME"
+                    valueComputed="SUBSTRING(DATE_FORMAT(now(3), &quot;%Y-%m-%dT%T.%f&quot;),1,23)"/>
+            <column name="CREATED_USER" value="0"/>
+            <column name="STATUS" valueBoolean="true"/>
+        </insert>
+        <modifySql dbms="postgresql">
+            <replace replace="SUBSTRING(DATE_FORMAT(now(3), &quot;%Y-%m-%dT%T.%f&quot;),1,23)" with="NOW()::timestamp"/>
+        </modifySql>
+        <modifySql dbms="oracle">
+            <replace replace="SUBSTRING(DATE_FORMAT(now(3), &quot;%Y-%m-%dT%T.%f&quot;),1,23)"
+                     with="TO_TIMESTAMP(SYSDATE)"/>
+        </modifySql>
+    </changeSet>
+    <changeSet author="harsha.madusanka" id="data.default.2.3.20">
+        <preConditions onFail="MARK_RAN">
+            <sqlCheck expectedResult="0">select count(*)
+                                         from "FILE_PROPERTY"
+                                         where "NAME" = 'Billing Approval ID'</sqlCheck>
+        </preConditions>
+        <insert tableName="FILE_PROPERTY">
+            <column name="NAME" value="Billing Approval ID"/>
+            <column name="IS_DELETABLE" valueBoolean="false"/>
+            <column name="IS_MANDATORY" valueBoolean="false"/>
+            <column name="IS_FREE_TEXT" valueBoolean="true"/>
+            <column name="IS_ADDABLE" valueBoolean="false"/>
+            <column name="PROPERTY_TYPE" valueNumeric="2"/>
+            <column name="TENANT_ID" value="0"/>
+            <column name="HOSPITAL_ID" value="0"/>
+            <column name="HIERARCHY_AVAILABLE" valueBoolean="false"/>
+            <column name="CREATED_DATE_TIME"
+                    valueComputed="SUBSTRING(DATE_FORMAT(now(3), &quot;%Y-%m-%dT%T.%f&quot;),1,23)"/>
+            <column name="UPDATED_DATE_TIME"
+                    valueComputed="SUBSTRING(DATE_FORMAT(now(3), &quot;%Y-%m-%dT%T.%f&quot;),1,23)"/>
+            <column name="CREATED_USER" value="0"/>
+            <column name="STATUS" valueBoolean="true"/>
+        </insert>
+        <modifySql dbms="postgresql">
+            <replace replace="SUBSTRING(DATE_FORMAT(now(3), &quot;%Y-%m-%dT%T.%f&quot;),1,23)" with="NOW()::timestamp"/>
+        </modifySql>
+        <modifySql dbms="oracle">
+            <replace replace="SUBSTRING(DATE_FORMAT(now(3), &quot;%Y-%m-%dT%T.%f&quot;),1,23)"
+                     with="TO_TIMESTAMP(SYSDATE)"/>
+        </modifySql>
+    </changeSet>
+
+    <changeSet author="harsha.madusanka" id="data.default.2.3.21">
+        <preConditions onFail="MARK_RAN">
+            <sqlCheck expectedResult="0">select count(*)
+                                         from "PROPERTY_ATTRIBUTES"
+                                         where "PROPERTY_ID" in
+                                               (select "ID" from "FILE_PROPERTY" where "NAME" = 'Category')
+                                           and "NAME" = 'Dental'
+            </sqlCheck>
+        </preConditions>
+        <insert tableName="PROPERTY_ATTRIBUTES">
+            <column name="PROPERTY_ID"
+                    valueComputed="4"/>
+            <column name="NAME" value="Dental"/>
+            <column name="IS_DELETABLE" valueBoolean="false"/>
+            <column name="HOSPITAL_ID" value="0"/>
+            <column name="TENANT_ID" value="0"/>
+            <column name="CREATED_USER" value="0"/>
+            <column name="CREATED_DATE_TIME"
+                    valueComputed="SUBSTRING(DATE_FORMAT(now(3), &quot;%Y-%m-%dT%T.%f&quot;),1,23)"/>
+            <column name="UPDATED_DATE_TIME"
+                    valueComputed="SUBSTRING(DATE_FORMAT(now(3), &quot;%Y-%m-%dT%T.%f&quot;),1,23)"/>
+        </insert>
+        <modifySql dbms="postgresql">
+            <replace replace="SUBSTRING(DATE_FORMAT(now(3), &quot;%Y-%m-%dT%T.%f&quot;),1,23)" with="NOW()::timestamp"/>
+        </modifySql>
+        <modifySql dbms="oracle">
+            <replace replace="SUBSTRING(DATE_FORMAT(now(3), &quot;%Y-%m-%dT%T.%f&quot;),1,23)"
+                     with="TO_TIMESTAMP(SYSDATE)"/>
+        </modifySql>
+    </changeSet>
+
+    <changeSet author="harsha.madusanka" id="data.default.2.3.22">
+        <preConditions onFail="MARK_RAN">
+            <sqlCheck expectedResult="0">select count(*)
+                                         from "PROPERTY_ATTRIBUTES"
+                                         where "PROPERTY_ID" in (select "ID" from "FILE_PROPERTY" where "NAME" = 'Type')
+                                           and "NAME" = 'Pre'
+            </sqlCheck>
+        </preConditions>
+        <insert tableName="PROPERTY_ATTRIBUTES">
+            <column name="PROPERTY_ID"
+                    valueComputed="5"/>
+            <column name="NAME" value="Pre"/>
+            <column name="IS_DELETABLE" valueBoolean="false"/>
+            <column name="HOSPITAL_ID" value="0"/>
+            <column name="TENANT_ID" value="0"/>
+            <column name="CREATED_USER" value="0"/>
+            <column name="CREATED_DATE_TIME"
+                    valueComputed="SUBSTRING(DATE_FORMAT(now(3), &quot;%Y-%m-%dT%T.%f&quot;),1,23)"/>
+            <column name="UPDATED_DATE_TIME"
+                    valueComputed="SUBSTRING(DATE_FORMAT(now(3), &quot;%Y-%m-%dT%T.%f&quot;),1,23)"/>
+        </insert>
+        <modifySql dbms="postgresql">
+            <replace replace="SUBSTRING(DATE_FORMAT(now(3), &quot;%Y-%m-%dT%T.%f&quot;),1,23)" with="NOW()::timestamp"/>
+        </modifySql>
+        <modifySql dbms="oracle">
+            <replace replace="SUBSTRING(DATE_FORMAT(now(3), &quot;%Y-%m-%dT%T.%f&quot;),1,23)"
+                     with="TO_TIMESTAMP(SYSDATE)"/>
+        </modifySql>
+    </changeSet>
+
+    <changeSet author="harsha.madusanka" id="data.default.2.3.23">
+        <preConditions onFail="MARK_RAN">
+            <sqlCheck expectedResult="0">select count(*)
+                                         from "PROPERTY_ATTRIBUTES"
+                                         where "PROPERTY_ID" in (select "ID" from "FILE_PROPERTY" where "NAME" = 'Type')
+                                           and "NAME" = 'Post'
+            </sqlCheck>
+        </preConditions>
+        <insert tableName="PROPERTY_ATTRIBUTES">
+            <column name="PROPERTY_ID"
+                    valueComputed="5"/>
+            <column name="NAME" value="Post"/>
+            <column name="IS_DELETABLE" valueBoolean="false"/>
+            <column name="HOSPITAL_ID" value="0"/>
+            <column name="TENANT_ID" value="0"/>
+            <column name="CREATED_USER" value="0"/>
+            <column name="CREATED_DATE_TIME"
+                    valueComputed="SUBSTRING(DATE_FORMAT(now(3), &quot;%Y-%m-%dT%T.%f&quot;),1,23)"/>
+            <column name="UPDATED_DATE_TIME"
+                    valueComputed="SUBSTRING(DATE_FORMAT(now(3), &quot;%Y-%m-%dT%T.%f&quot;),1,23)"/>
+        </insert>
+        <modifySql dbms="postgresql">
+            <replace replace="SUBSTRING(DATE_FORMAT(now(3), &quot;%Y-%m-%dT%T.%f&quot;),1,23)" with="NOW()::timestamp"/>
+        </modifySql>
+        <modifySql dbms="oracle">
+            <replace replace="SUBSTRING(DATE_FORMAT(now(3), &quot;%Y-%m-%dT%T.%f&quot;),1,23)"
+                     with="TO_TIMESTAMP(SYSDATE)"/>
+        </modifySql>
+    </changeSet>
+
+    <changeSet author="harsha.madusanka" id="data.default.2.3.24">
+        <preConditions onFail="MARK_RAN">
+            <sqlCheck expectedResult="0">select count(*)
+                                         from "PROPERTY_ATTRIBUTES"
+                                         where "PROPERTY_ID" in (select "ID" from "FILE_PROPERTY" where "NAME" = 'Type')
+                                           and "NAME" = 'Other'
+            </sqlCheck>
+        </preConditions>
+        <insert tableName="PROPERTY_ATTRIBUTES">
+            <column name="PROPERTY_ID"
+                    valueComputed="5"/>
+            <column name="NAME" value="Other"/>
+            <column name="IS_DELETABLE" valueBoolean="false"/>
+            <column name="HOSPITAL_ID" value="0"/>
+            <column name="TENANT_ID" value="0"/>
+            <column name="CREATED_USER" value="0"/>
+            <column name="CREATED_DATE_TIME"
+                    valueComputed="SUBSTRING(DATE_FORMAT(now(3), &quot;%Y-%m-%dT%T.%f&quot;),1,23)"/>
+            <column name="UPDATED_DATE_TIME"
+                    valueComputed="SUBSTRING(DATE_FORMAT(now(3), &quot;%Y-%m-%dT%T.%f&quot;),1,23)"/>
+        </insert>
+        <modifySql dbms="postgresql">
+            <replace replace="SUBSTRING(DATE_FORMAT(now(3), &quot;%Y-%m-%dT%T.%f&quot;),1,23)" with="NOW()::timestamp"/>
+        </modifySql>
+        <modifySql dbms="oracle">
+            <replace replace="SUBSTRING(DATE_FORMAT(now(3), &quot;%Y-%m-%dT%T.%f&quot;),1,23)"
+                     with="TO_TIMESTAMP(SYSDATE)"/>
+        </modifySql>
+    </changeSet>
+
+    <changeSet author="harsha.madusanka" id="data.default.2.3.25">
+        <preConditions onFail="MARK_RAN">
+            <sqlCheck expectedResult="0">select count(*)
+                                         from "FILE_PROPERTY"
+                                         where "NAME" = 'Dental Doctor Images'</sqlCheck>
+        </preConditions>
+        <insert tableName="FILE_PROPERTY">
+            <column name="NAME" value="Dental Doctor Images"/>
+            <column name="IS_DELETABLE" valueBoolean="false"/>
+            <column name="IS_MANDATORY" valueBoolean="false"/>
+            <column name="IS_FREE_TEXT" valueBoolean="true"/>
+            <column name="IS_ADDABLE" valueBoolean="false"/>
+            <column name="PROPERTY_TYPE" valueNumeric="2"/>
+            <column name="TENANT_ID" value="0"/>
+            <column name="HOSPITAL_ID" value="0"/>
+            <column name="HIERARCHY_AVAILABLE" valueBoolean="false"/>
+            <column name="CREATED_DATE_TIME"
+                    valueComputed="SUBSTRING(DATE_FORMAT(now(3), &quot;%Y-%m-%dT%T.%f&quot;),1,23)"/>
+            <column name="UPDATED_DATE_TIME"
+                    valueComputed="SUBSTRING(DATE_FORMAT(now(3), &quot;%Y-%m-%dT%T.%f&quot;),1,23)"/>
+            <column name="CREATED_USER" value="0"/>
+            <column name="STATUS" valueBoolean="true"/>
+        </insert>
+        <modifySql dbms="postgresql">
+            <replace replace="SUBSTRING(DATE_FORMAT(now(3), &quot;%Y-%m-%dT%T.%f&quot;),1,23)" with="NOW()::timestamp"/>
+        </modifySql>
+        <modifySql dbms="oracle">
+            <replace replace="SUBSTRING(DATE_FORMAT(now(3), &quot;%Y-%m-%dT%T.%f&quot;),1,23)"
+                     with="TO_TIMESTAMP(SYSDATE)"/>
+        </modifySql>
+    </changeSet>
+
+    <changeSet author="harsha.madusanka" id="data.default.2.3.26">
+        <preConditions onFail="MARK_RAN">
+            <sqlCheck expectedResult="0">select count(*)
+                                         from "FILE_PROPERTY"
+                                         where "NAME" = 'OR Booking ID'</sqlCheck>
+        </preConditions>
+        <insert tableName="FILE_PROPERTY">
+            <column name="NAME" value="OR Booking ID"/>
+            <column name="IS_DELETABLE" valueBoolean="false"/>
+            <column name="IS_MANDATORY" valueBoolean="false"/>
+            <column name="IS_FREE_TEXT" valueBoolean="true"/>
+            <column name="IS_ADDABLE" valueBoolean="false"/>
+            <column name="PROPERTY_TYPE" valueNumeric="2"/>
+            <column name="TENANT_ID" value="0"/>
+            <column name="HOSPITAL_ID" value="0"/>
+            <column name="HIERARCHY_AVAILABLE" valueBoolean="false"/>
+            <column name="CREATED_DATE_TIME"
+                    valueComputed="SUBSTRING(DATE_FORMAT(now(3), &quot;%Y-%m-%dT%T.%f&quot;),1,23)"/>
+            <column name="UPDATED_DATE_TIME"
+                    valueComputed="SUBSTRING(DATE_FORMAT(now(3), &quot;%Y-%m-%dT%T.%f&quot;),1,23)"/>
+            <column name="CREATED_USER" value="0"/>
+            <column name="STATUS" valueBoolean="true"/>
+        </insert>
+        <modifySql dbms="postgresql">
+            <replace replace="SUBSTRING(DATE_FORMAT(now(3), &quot;%Y-%m-%dT%T.%f&quot;),1,23)" with="NOW()::timestamp"/>
+        </modifySql>
+        <modifySql dbms="oracle">
+            <replace replace="SUBSTRING(DATE_FORMAT(now(3), &quot;%Y-%m-%dT%T.%f&quot;),1,23)"
+                     with="TO_TIMESTAMP(SYSDATE)"/>
+        </modifySql>
+    </changeSet>
+
+    <changeSet author="shashith.aravinda" id="data.default.2.3.27">
+        <preConditions onFail="MARK_RAN">
+            <sqlCheck expectedResult="0">select count(*)
+                                         from "FILE_PROPERTY"
+                                         where "NAME" = 'Donor ID'</sqlCheck>
+        </preConditions>
+        <insert tableName="FILE_PROPERTY">
+            <column name="NAME" value="Donor ID"/>
+            <column name="IS_DELETABLE" valueBoolean="false"/>
+            <column name="IS_MANDATORY" valueBoolean="false"/>
+            <column name="IS_FREE_TEXT" valueBoolean="true"/>
+            <column name="IS_ADDABLE" valueBoolean="false"/>
+            <column name="PROPERTY_TYPE" valueNumeric="2"/>
+            <column name="TENANT_ID" value="0"/>
+            <column name="HOSPITAL_ID" value="0"/>
+            <column name="HIERARCHY_AVAILABLE" valueBoolean="false"/>
+            <column name="CREATED_DATE_TIME"
+                    valueComputed="SUBSTRING(DATE_FORMAT(now(3), &quot;%Y-%m-%dT%T.%f&quot;),1,23)"/>
+            <column name="UPDATED_DATE_TIME"
+                    valueComputed="SUBSTRING(DATE_FORMAT(now(3), &quot;%Y-%m-%dT%T.%f&quot;),1,23)"/>
+            <column name="CREATED_USER" value="0"/>
+            <column name="STATUS" valueBoolean="true"/>
+        </insert>
+        <modifySql dbms="postgresql">
+            <replace replace="SUBSTRING(DATE_FORMAT(now(3), &quot;%Y-%m-%dT%T.%f&quot;),1,23)" with="NOW()::timestamp"/>
+        </modifySql>
+        <modifySql dbms="oracle">
+            <replace replace="SUBSTRING(DATE_FORMAT(now(3), &quot;%Y-%m-%dT%T.%f&quot;),1,23)"
+                     with="TO_TIMESTAMP(SYSDATE)"/>
+        </modifySql>
+    </changeSet>
+
+</databaseChangeLog>

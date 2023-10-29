@@ -1,0 +1,66 @@
+spring:
+  application:
+    name: csi-document-management-service
+  profiles:
+    active: perf
+  jpa:
+    hibernate:
+      ddl-auto: none #keep this as none, do schema changes using liquibase
+      naming:
+        #this is tell jpa to take table and column names in uppercase format
+        physical-strategy: org.hibernate.boot.model.naming.PhysicalNamingStrategyStandardImpl
+    properties:
+      hibernate:
+        #this is tell jpa to include double quotes around table name names column names,
+        #this is useful when using sql keywords as column names like USER, INDEX
+        globally_quoted_identifiers: true
+  servlet:
+    multipart:
+      max-file-size: 100MB
+      max-request-size: 100MB
+      location: ${file.temp_file_upload_path}
+  liquibase:
+    enabled: false
+
+springdoc:
+  swagger-ui:
+    path: /swagger-ui-custom.html
+
+logging:
+  level:
+    root: INFO
+    com.csi: INFO
+    org.springframework: INFO
+    liquibase: INFO
+
+#spring actuator properties
+management:
+  endpoint:
+    health:
+      group:
+        custom:
+          include:
+            - diskSpace
+            - ping
+      show-components: always
+      show-details: always
+  endpoints:
+    web:
+      exposure:
+        include: info, health, scheduledtasks, metrics
+
+server:
+  servlet:
+    encoding:
+      charset: UTF-8
+      enabled: true
+      force: true
+
+#appication specific properties
+mongo:
+  documentDetailsCollectionName: document_details
+
+file:
+  ws_downLoad_Path: "/home/data/downloads/ws/"
+  unzip_file_path: "/home/data/downloads/unzip/"
+  temp_file_upload_path: "/home/data/upload"
